@@ -1,0 +1,81 @@
+.textRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+.textRow h4 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #aa0000;
+}
+
+.textRow p {
+  font-family: 'Nunito';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 164.52%;
+  letter-spacing: 0.01em;
+  color: #d9f7f5;
+}
+.treasury {
+  overflow-x: hidden;
+
+  background-color: #0c1013;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 60px;
+}
+.textPart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.textPart h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 119%;
+  text-transform: uppercase;
+  color: #d9f7f5;
+}
+.textPart h1 {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.red {
+  color: #a50000;
+}
+
+.orb {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media screen and (max-width: 1048px) {
+  .treasury {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 804px) {
+  .treasury {
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+  .orb {
+    grid-column: 1/2;
+    grid-row: 6/7;
+    justify-self: center;
+  }
+}

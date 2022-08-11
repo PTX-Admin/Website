@@ -1,0 +1,152 @@
+.roadCont {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url('../../Assets/home/roadmap/roadbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 120px 20px;
+  min-height: max(100vh, 1550px);
+  position: relative;
+  overflow-x: hidden;
+}
+.roadmap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+.roadCol {
+  gap: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: absolute;
+}
+.time {
+  mix-blend-mode: color-dodge;
+  position: absolute;
+  max-width: 100%;
+  object-fit: contain;
+  bottom: 5%;
+  right: 20%;
+}
+.mid {
+  max-width: 100%;
+  object-fit: contain;
+}
+.roadmap .roadCol:nth-of-type(1) {
+  left: 0;
+  top: 54%;
+  text-align: left;
+  align-items: flex-start;
+}
+.roadmap .roadCol:nth-of-type(2) {
+  right: 0;
+  top: 70%;
+  text-align: right;
+  align-items: flex-end;
+}
+.topRoad h1 {
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 72px;
+  color: #ffffff;
+  text-align: inherit;
+}
+.red {
+  font-weight: 700;
+  color: #ac0000;
+}
+.roadList {
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+  flex-direction: column;
+}
+.roadItem {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 166%;
+  color: #ffffff;
+  text-align: inherit;
+  width: fit-content;
+}
+@media screen and (max-width: 1512px) {
+  .time {
+    right: 12%;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .time {
+    right: 8%;
+  }
+}
+@media screen and (max-width: 1256px) {
+  .roadCol {
+    padding-left: 20px;
+    gap: 2rem;
+  }
+  .roadItem {
+    font-size: 16px;
+  }
+  .roadCont {
+    min-height: max(100vh, 1400px);
+  }
+  .time {
+    bottom: 2%;
+  }
+}
+@media screen and (max-width: 1144px) {
+  .roadmap .roadCol:nth-of-type(1) {
+    top: 50%;
+  }
+  .roadmap .roadCol:nth-of-type(2) {
+    top: 65%;
+  }
+  .roadCont {
+    min-height: max(100vh, 1300px);
+  }
+}
+@media screen and (max-width: 946px) {
+  .roadCont {
+    min-height: auto;
+    padding: 2rem 20px;
+  }
+  .roadmap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .topRoad br {
+    display: none;
+  }
+  .roadCol {
+    align-items: center !important;
+    text-align: center !important;
+    position: static;
+  }
+  .roadList {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .mid {
+    display: none;
+  }
+  .roadItem {
+    width: 100%;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 560px) {
+  .topRoad h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+}

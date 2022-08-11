@@ -1,0 +1,38 @@
+.modelCont {
+  background-color: #00090f;
+  overflow-x: hidden;
+}
+.model {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 60px 60px;
+}
+.model h1 {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 63px;
+  color: #d9f7f5;
+}
+.red {
+  color: #da2a2a;
+}
+.model p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 166.4%;
+  font-family: 'Nunito';
+  color: #d9f7f5;
+}
+@media screen and (max-width: 500px) {
+  .model h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+  .model p {
+    font-size: 16px;
+  }
+}

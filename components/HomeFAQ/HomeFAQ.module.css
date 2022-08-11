@@ -1,0 +1,137 @@
+.faq {
+  background-color: #0c1013;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  padding: 1rem 0rem;
+  gap: 2rem;
+  margin-top: 200px;
+  object-fit: contain;
+  padding: 30px 60px;
+}
+.answer a {
+  color: inherit;
+}
+.headingDiv {
+  flex: 0.4;
+  position: relative;
+  isolation: isolate;
+}
+.cube {
+  position: absolute;
+  right: 18%;
+  top: 9%;
+  object-fit: contain;
+  max-width: 100%;
+  z-index: -1;
+}
+.headingDiv h1 {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: white;
+  width: min-content;
+  text-align: left;
+}
+.red {
+  color: #980202;
+}
+.descFaq {
+  font-size: 1.2rem;
+  margin-left: 3.5rem;
+}
+.faqDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.6;
+  gap: 20px;
+  flex-direction: column;
+}
+.faqQDiv {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.faqBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: transparent;
+  border-bottom: 2px solid #202932;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.faqBtn p {
+  pointer-events: none;
+  text-align: left;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #d9f7f5;
+}
+.faqBtn svg {
+  font-size: 1.5rem;
+  color: #da2a2a;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+.faqAnswer {
+  transition: all 0.3s ease-in-out;
+  padding-inline: 2rem;
+  max-height: 0px;
+  overflow-y: hidden;
+  width: 100%;
+}
+.answer {
+  font-family: 'Nunito';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #d9f7f5;
+  text-align: left;
+}
+.active {
+  padding: 1.5rem 2rem;
+  max-height: 900px;
+  overflow-y: visible;
+}
+.faqBtn svg.activeBtn {
+  transform: rotate(180deg);
+}
+@media screen and (max-width: 1000px) {
+  .faq {
+    flex-direction: column;
+    margin-top: 160px;
+  }
+  .cube {
+    top: -60%;
+    right: -20%;
+  }
+  .faqDiv {
+    margin-top: 4rem;
+  }
+}
+@media screen and (max-width: 526px) {
+  .faq {
+    margin-top: 100px;
+  }
+  .cube {
+    display: none;
+  }
+  .headingDiv h1 {
+    text-align: center;
+  }
+  .faqDiv {
+    margin-top: 2rem;
+  }
+}
