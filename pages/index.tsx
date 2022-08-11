@@ -6,7 +6,6 @@ import PresaleHeader from '../components/PresaleHeader';
 import PresaleProgress from '../components/PresaleProgress';
 import PresaleProjectInfo from '../components/PresaleProjectInfo';
 import PresalePurchase from '../components/PresalePurchase';
-import ProjectTokenomics from '../components/PresaleTokenomics';
 import 'react-toastify/dist/ReactToastify.css';
 import { palette } from '../styles/palette';
 import Head from 'next/head';
