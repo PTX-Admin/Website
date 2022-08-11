@@ -86,7 +86,7 @@ export default function ConnectWalletButton() {
   return (
     <>
       <Button
-        display={{ base: 'none', xl: 'flex' }}
+        // display={{ base: 'none', xl: 'flex' }}
         w="fit-content"
         onClick={() => onOpen()}
         rightIcon={<BiWallet />}
@@ -200,7 +200,7 @@ export default function ConnectWalletButton() {
                       >
                         <Text w="100%">{connector.name}</Text>
 
-                        {!connector.ready && ' (unsupported)'}
+                        {!connector.ready && ' (unavailable)'}
                       </Button>
                     ))}
                   </>

@@ -27,7 +27,7 @@ export default function PresalePurchase() {
 
   const started = useMemo(() => {
     if (!Presale.startsAt) return false;
-    return moment().isBefore(Presale.startsAt);
+    return moment(Presale.startsAt).isBefore(Date.now() / 1000);
   }, [Presale.startsAt]);
 
   const [balance, setBalance] = useState<number>(0);
@@ -45,8 +45,10 @@ export default function PresalePurchase() {
   const { getInputProps } = useNumberInput({
     step: 1,
     value: toMint,
-    min: Presale.minInvest,
-    max: balance,
+    min: (Presale.currentEpoch?.price ?? 0) / 100,
+    max:
+      (Presale.userCap ?? 0) * ((Presale?.currentEpoch?.price ?? 0) / 100) -
+      (Presale.userInvested ?? 0),
     precision: 2,
     onChange: (val) => setToMint(Number(val)),
   });
@@ -96,7 +98,7 @@ export default function PresalePurchase() {
   return (
     <>
       <Flex
-        gap={2}
+        gap={4}
         direction={{ base: 'column', lg: 'row' }}
         rounded="xl"
         h="fit-content"
@@ -181,7 +183,9 @@ export default function PresalePurchase() {
                           <>
                             {Presale.userInvested &&
                             Presale.currentEpoch &&
-                            Presale.userInvested >= Presale.currentEpoch?.maxContribution &&
+                            Presale.userInvested >=
+                              (Presale.userCap ?? 0) *
+                                ((Presale?.currentEpoch?.price ?? 0) / 100) &&
                             Presale.currentEpoch.id !== 5 ? (
                               <NetworkButton px={8} disabled>
                                 CAP REACHED

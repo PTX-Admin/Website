@@ -76,7 +76,12 @@ export default function Nav() {
     <>
       <Box px={'5%'} w="full" bgColor="rgba(0,0,0,0.75)" position={'sticky'} top="0%" zIndex={99}>
         <Flex h={24} alignItems={'center'} justifyContent={'space-between'} py={4}>
-          <Image src="/logo.png" alt="ProtocolX Logo" objectFit={'contain'} maxW="256px " />
+          <Image
+            src="/logo.png"
+            alt="ProtocolX Logo"
+            objectFit={'contain'}
+            maxW={{ base: '100px', md: '256px' }}
+          />
           <HStack gap={4} fontWeight="bold" fontSize={'2xl'} display={{ base: 'none', xl: 'flex' }}>
             {Links.map((val) => (
               <NavLink link={val} key={val.label} />
