@@ -27,13 +27,13 @@ function buildEpoch(data: any) {
   return epoch;
 }
 
-export const VoidContext = createContext<{
+export const ProtocolXContext = createContext<{
   Presale: IPresale;
 }>({
   Presale: emptyPresale,
 });
 
-export function VoidProvider({ children }: { children: ReactNode }) {
+export function ProtocolXProvider({ children }: { children: ReactNode }) {
   const [presale, setPresale] = useState<IPresale>(emptyPresale);
 
   const { address } = useAccount();
@@ -121,5 +121,7 @@ export function VoidProvider({ children }: { children: ReactNode }) {
     return () => clearInterval(interval);
   }, []);
 
-  return <VoidContext.Provider value={{ Presale: presale }}>{children}</VoidContext.Provider>;
+  return (
+    <ProtocolXContext.Provider value={{ Presale: presale }}>{children}</ProtocolXContext.Provider>
+  );
 }

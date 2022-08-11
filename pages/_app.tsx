@@ -1,13 +1,15 @@
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, VStack } from '@chakra-ui/react';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
+import '@fontsource/montserrat';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { customTheme } from '../styles/theme';
 import { bscChain } from '../config/networks';
-import { VoidProvider } from '../context/VoidContext';
+import { ProtocolXProvider } from '../context/ProtocolXContext';
+import Navbar from '../components/Navbar';
 
 const { provider } = configureChains(
   [bscChain],
@@ -29,7 +31,7 @@ const wagmiClient = createClient({
     new CoinbaseWalletConnector({
       chains: [bscChain],
       options: {
-        appName: 'Void Token',
+        appName: 'Protocol X',
       },
     }),
     new WalletConnectConnector({
@@ -44,11 +46,22 @@ const wagmiClient = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <VoidProvider>
+      <ProtocolXProvider>
         <ChakraProvider theme={customTheme}>
-          <Component {...pageProps} />
+          <VStack
+            minH={'99vh'}
+            w="full"
+            backgroundImage={'url(./bg.jpg)'}
+            backgroundSize="cover"
+            // backgroundPosition={'center'}
+            backgroundAttachment="fixed"
+            backgroundRepeat={'no-repeat'}
+          >
+            <Navbar />
+            <Component {...pageProps} />
+          </VStack>
         </ChakraProvider>
-      </VoidProvider>
+      </ProtocolXProvider>
     </WagmiConfig>
   );
 }

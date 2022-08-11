@@ -29,7 +29,7 @@ export default function ConnectWalletButton() {
   const mounted = useMounted();
   const { address, isConnected, isConnecting, connector } = useAccount();
   const { connect, connectors, error, isError, isLoading } = useConnect({
-    chainId: 56,
+    chainId: 97,
     onSuccess(data) {
       onClose();
       // summonToast(
@@ -86,12 +86,12 @@ export default function ConnectWalletButton() {
   return (
     <>
       <Button
-        className="glow"
+        display={{ base: 'none', xl: 'flex' }}
+        w="fit-content"
         onClick={() => onOpen()}
-        // rightIcon={<BiWallet />}
+        rightIcon={<BiWallet />}
         variant="solid"
-        py={7}
-        px={8}
+        p={6}
         fontWeight={'bold'}
       >
         {mounted && isConnected ? 'WALLET' : 'CONNECT'}
@@ -105,7 +105,13 @@ export default function ConnectWalletButton() {
         scrollBehavior="inside"
       >
         <ModalOverlay backdropFilter="blur(4px)" />
-        <ModalContent>
+        {/* background-color: rgba(255, 255, 255, .15); backdrop-filter: blur(5px); */}
+        <ModalContent
+          backgroundColor={'rgba(0,0,0, .85)'}
+          backdropFilter="auto"
+          backdropBlur="5px"
+          border="2px solid rgba(255,0,0,0.3)"
+        >
           <ModalHeader justifyContent="center" py={2} px={4}>
             {isConnected ? (
               <Text>Connected with {connector?.name}</Text>
@@ -113,7 +119,7 @@ export default function ConnectWalletButton() {
               <Text>Connect Wallet</Text>
             )}
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton _focusVisible={{ boxShadow: '0 0 0 3px rgba(255,0,0, 0.6)' }} />
           <ModalBody px={4}>
             {isConnected ? (
               <VStack py={2} alignItems="start" gap={2}>
@@ -130,7 +136,7 @@ export default function ConnectWalletButton() {
                   />
                 </HStack>
                 <HStack w="100%" justifyContent="space-between">
-                  {chain?.id === 56 && address ? (
+                  {chain?.id === 97 && address ? (
                     <>
                       {/* <TokenTracker
                         tokenLogo="https://assets.coingecko.com/coins/images/4001/small/Fantom.png?1558015016"
@@ -144,18 +150,21 @@ export default function ConnectWalletButton() {
                   ) : (
                     <>
                       {isLoading ? (
-                        <Button isLoading loadingText="Switching">
+                        <Button isLoading loadingText="Switching" borderColor="white">
                           Switch to BSC
                         </Button>
                       ) : (
-                        <Button onClick={() => switchNetwork && switchNetwork(56)}>
+                        <Button
+                          onClick={() => switchNetwork && switchNetwork(97)}
+                          borderColor="white"
+                        >
                           Switch to BSC
                         </Button>
                       )}
                     </>
                   )}
                 </HStack>
-                {chain?.id === 56 && address && mounted && window.ethereum && (
+                {chain?.id === 97 && address && mounted && window.ethereum && (
                   <NetworkButton
                     variant={'solid'}
                     leftIcon={
@@ -165,9 +174,10 @@ export default function ConnectWalletButton() {
                         minH="32px"
                       />
                     }
-                    onClick={() => addToken(presaleContractConfig.addressOrName, 'pVOID')}
+                    borderColor="white"
+                    onClick={() => addToken(presaleContractConfig.addressOrName, 'pPTX')}
                   >
-                    Add $pVOID
+                    Add $pPTX
                   </NetworkButton>
                 )}
               </VStack>
@@ -185,7 +195,7 @@ export default function ConnectWalletButton() {
                         w="100%"
                         disabled={!connector.ready}
                         key={connector.id}
-                        onClick={() => connect({ chainId: 56, connector: connector })}
+                        onClick={() => connect({ chainId: 97, connector: connector })}
                         leftIcon={<ConnectWalletButtonIcons connector={connector.name} />}
                       >
                         <Text w="100%">{connector.name}</Text>

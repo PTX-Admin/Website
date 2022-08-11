@@ -11,7 +11,7 @@ const NetworkButton: NetworkButtonType = forwardRef(({ children, ...props }, ref
 
   async function switchNetworkWrapper() {
     if (!switchNetwork) return;
-    switchNetwork(56);
+    switchNetwork(97);
   }
   return (
     <>
@@ -21,7 +21,7 @@ const NetworkButton: NetworkButtonType = forwardRef(({ children, ...props }, ref
         </Button>
       ) : (
         <>
-          {chain && chain.id !== 56 ? (
+          {chain && chain.id !== 97 ? (
             <>
               {isLoading ? (
                 <Button

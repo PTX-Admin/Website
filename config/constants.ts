@@ -17,13 +17,13 @@ export const connectorIcons: IConnectorIcon = {
   },
   WalletConnect: {
     logoURI:
-      'https://raw.githubusercontent.com/WalletConnect/walletconnect-assets/master/png/circle/walletconnect-circle-blue.png',
+      'https://raw.githubusercontent.com/WalletConnect/walletconnect-assets/master/Logo/Blue%20(Default)/Logo.png',
   },
 };
 
-export const BUSDAddress = '0xe9e7cea3dedca5984780bafc599bd69add087d56';
+export const BUSDAddress = '0xdE1dEBADfc466cc50BBaad33917a954d9D77b874';
 
 export const presaleContractConfig = {
-  addressOrName: '0xe0D4ed2613f6c8737234d28D24b9C5d7f106bd28',
+  addressOrName: '0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455',
   contractInterface: PresaleABI,
 };

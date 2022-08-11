@@ -17,7 +17,7 @@ export default function PresaleProjectInfo() {
     <>
       <Flex direction={{ base: 'column', lg: 'row' }} w="full" py={12} gap={4}>
         <HStack gap={8} fontSize="2xl " w={{ base: '100%', lg: '50%' }}>
-          <Divider w="10%" borderColor={palette.blue} borderBottomWidth="4px" opacity={1} />
+          <Divider w="10%" borderColor={'red'} borderBottomWidth="4px" opacity={1} />
           <Text fontWeight={'bold'}>PROJECT INFORMATION</Text>
         </HStack>
         <HStack
@@ -35,7 +35,7 @@ export default function PresaleProjectInfo() {
       </Flex>
       <Flex
         w="full"
-        border={`1px solid ${palette.blue}`}
+        border={`1px solid red`}
         rounded="xl"
         justifyContent={'space-between'}
         alignItems="center"

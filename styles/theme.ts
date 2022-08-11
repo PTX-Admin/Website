@@ -16,27 +16,31 @@ export const customTheme = extendTheme({
     },
   },
   fonts: {
-    heading: 'AvenirNext-Bold, sans-serif',
-    body: 'AvenirNext-Bold, sans-serif',
+    heading: 'Montserrat, sans-serif',
+    body: 'Montserrat, sans-serif',
   },
   components: {
     Button: {
       variants: {
         solid: () => ({
-          color: 'black',
-          background: palette.yellow,
+          color: 'white',
+          background: '',
           borderRadius: 'xl',
           transition: '0.3s',
+          border: '1px solid red',
           px: 8,
           py: 6,
           _hover: {
-            background: palette.yellowDark,
+            background: '',
+            color: 'grey',
           },
           _focus: {
-            background: palette.yellowDark,
+            background: '',
+            color: 'grey',
           },
           _active: {
-            background: palette.yellowDark,
+            background: '',
+            color: 'grey',
           },
         }),
       },

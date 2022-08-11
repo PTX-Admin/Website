@@ -2,12 +2,22 @@ import { ethers } from 'ethers';
 import { Chain, defaultChains } from 'wagmi';
 import { INetworkDetails } from './types';
 
+// export const bscChain: Chain = {
+//   id: 56,
+//   name: 'BSC',
+//   network: 'Binance Smart Chain',
+//   rpcUrls: {
+//     default: 'https://bsc-dataseed.binance.org	',
+//   },
+//   blockExplorers: { default: { name: 'BscScan', url: 'https://www.bscscan.com/' } },
+//   nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+// };
 export const bscChain: Chain = {
-  id: 56,
+  id: 97,
   name: 'BSC',
   network: 'Binance Smart Chain',
   rpcUrls: {
-    default: 'https://bsc-dataseed.binance.org	',
+    default: 'https://data-seed-prebsc-1-s3.binance.org:8545',
   },
   blockExplorers: { default: { name: 'BscScan', url: 'https://www.bscscan.com/' } },
   nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
@@ -54,6 +64,17 @@ export const networkDetails: INetworkDetails = {
   56: {
     rpcUrl: 'https://bsc-dataseed.binance.org',
     chainProviders: new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org'),
+    blockExplorerURL: 'https://www.bscscan.com/',
+    blockExplorerName: 'BscScan',
+    prefix: 'bsc',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png',
+  },
+  97: {
+    rpcUrl: 'https://data-seed-prebsc-1-s3.binance.org:8545',
+    chainProviders: new ethers.providers.JsonRpcProvider(
+      'https://data-seed-prebsc-1-s3.binance.org:8545'
+    ),
     blockExplorerURL: 'https://www.bscscan.com/',
     blockExplorerName: 'BscScan',
     prefix: 'bsc',
