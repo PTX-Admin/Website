@@ -22,14 +22,20 @@ import { useAccount, useConnect, useDisconnect, useNetwork, useSwitchNetwork } f
 import useMounted from '../../hooks/useMounted';
 import useWeb3Formatter from '../../hooks/useWeb3Formatter';
 import ConnectWalletButtonIcons from './ConnectWalletButtonIcons';
-import { connectorIcons, presaleContractConfig } from '../../config/constants';
+import {
+  BUSDAddress,
+  coinLogoBase64,
+  connectorIcons,
+  presaleContractConfig,
+} from '../../config/constants';
 import NetworkButton from '../NetworkButton';
+import TokenTracker from '../tokenTracker';
 
 export default function ConnectWalletButton() {
   const mounted = useMounted();
   const { address, isConnected, isConnecting, connector } = useAccount();
   const { connect, connectors, error, isError, isLoading } = useConnect({
-    chainId: 97,
+    chainId: 56,
     onSuccess(data) {
       onClose();
       // summonToast(
@@ -78,6 +84,7 @@ export default function ConnectWalletButton() {
           address: address,
           symbol: symbol,
           decimals: 18,
+          image: coinLogoBase64,
         },
       },
     });
@@ -136,16 +143,23 @@ export default function ConnectWalletButton() {
                   />
                 </HStack>
                 <HStack w="100%" justifyContent="space-between">
-                  {chain?.id === 97 && address ? (
+                  {chain?.id === 56 && address ? (
                     <>
-                      {/* <TokenTracker
-                        tokenLogo="https://assets.coingecko.com/coins/images/4001/small/Fantom.png?1558015016"
+                      <TokenTracker
+                        tokenLogo="https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png?1644979850"
                         address={address}
                         watch={true}
                         cacheTime={5000}
                         chainId={250}
-                        staleTime={5000}
-                      /> */}
+                      />
+                      <TokenTracker
+                        tokenLogo="https://assets.coingecko.com/coins/images/9576/small/BUSD.png?1568947766"
+                        token={BUSDAddress}
+                        address={address}
+                        watch={true}
+                        cacheTime={5000}
+                        chainId={250}
+                      />
                     </>
                   ) : (
                     <>
@@ -155,7 +169,7 @@ export default function ConnectWalletButton() {
                         </Button>
                       ) : (
                         <Button
-                          onClick={() => switchNetwork && switchNetwork(97)}
+                          onClick={() => switchNetwork && switchNetwork(56)}
                           borderColor="white"
                         >
                           Switch to BSC
@@ -164,7 +178,7 @@ export default function ConnectWalletButton() {
                     </>
                   )}
                 </HStack>
-                {chain?.id === 97 && address && mounted && window.ethereum && (
+                {chain?.id === 56 && address && mounted && window.ethereum && (
                   <NetworkButton
                     variant={'solid'}
                     leftIcon={
@@ -174,7 +188,7 @@ export default function ConnectWalletButton() {
                         minH="32px"
                       />
                     }
-                    borderColor="white"
+                    borderColor="red"
                     onClick={() => addToken(presaleContractConfig.addressOrName, 'pPTX')}
                   >
                     Add $pPTX
@@ -195,7 +209,7 @@ export default function ConnectWalletButton() {
                         w="100%"
                         disabled={!connector.ready}
                         key={connector.id}
-                        onClick={() => connect({ chainId: 97, connector: connector })}
+                        onClick={() => connect({ chainId: 56, connector: connector })}
                         leftIcon={<ConnectWalletButtonIcons connector={connector.name} />}
                       >
                         <Text w="100%">{connector.name}</Text>

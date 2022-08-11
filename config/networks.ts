@@ -13,13 +13,13 @@ import { INetworkDetails } from './types';
 //   nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
 // };
 export const bscChain: Chain = {
-  id: 97,
+  id: 56,
   name: 'BSC',
   network: 'Binance Smart Chain',
   rpcUrls: {
-    default: 'https://data-seed-prebsc-1-s3.binance.org:8545',
+    default: 'https://bsc-dataseed.binance.org',
   },
-  blockExplorers: { default: { name: 'BscScan', url: 'https://www.bscscan.com/' } },
+  blockExplorers: { default: { name: 'BSCScan', url: 'https://www.bscscan.com/' } },
   nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
 };
 
