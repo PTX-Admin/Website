@@ -1,1 +1,1 @@
-export { default } from './TokenTracker'
+export { default } from './TokenTracker';
