@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { erc20ABI, useAccount, useContractInfiniteReads } from 'wagmi';
-import { presaleContractConfig, BUSDAddress } from '../config/constants';
+import { presaleContractConfig, BUSDAddress, secondsByDuration } from '../config/constants';
 import { IEpoch, IPresale } from '../config/types';
 
 const emptyPresale: IPresale = {
@@ -110,8 +110,7 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
       console.log(presaleObj);
       setPresale(presaleObj);
     },
-    cacheTime: 5_000,
-    staleTime: 5_000,
+    cacheTime: secondsByDuration['day'],
   });
   useEffect(() => {
     refetch();

@@ -82,7 +82,7 @@ export default function Nav() {
             objectFit={'contain'}
             maxW={{ base: '100px', md: '256px' }}
           />
-          <HStack gap={4} fontWeight="bold" fontSize={'2xl'} display={{ base: 'none', xl: 'flex' }}>
+          <HStack gap={4} fontWeight="bold" fontSize={'xl'} display={{ base: 'none', xl: 'flex' }}>
             {Links.map((val) => (
               <NavLink link={val} key={val.label} />
             ))}
