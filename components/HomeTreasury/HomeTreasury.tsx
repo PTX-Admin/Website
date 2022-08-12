@@ -4,7 +4,7 @@ import treasure from '../../Assets/home/treasury/treasure.svg';
 
 export default function HomeTreasury() {
   return (
-    <div className={styles.treasury}>
+    <div className={styles.treasury} style={{ marginTop: '0px' }}>
       <div data-aos="fade-top" className={styles.textPart}>
         <h3>Belief</h3>
         <h1>

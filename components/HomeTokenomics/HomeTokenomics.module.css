@@ -132,6 +132,7 @@
 @media screen and (max-width: 1054px) {
   .tokenCont {
     margin-top: 4rem;
+    padding: 1rem;
   }
   .token {
     flex-direction: column;

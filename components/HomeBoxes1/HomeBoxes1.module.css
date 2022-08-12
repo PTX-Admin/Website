@@ -66,9 +66,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100% !important;
   background-color: #0c1013;
   height: max(90vh, 800px);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   padding-top: 4rem;
 }
 

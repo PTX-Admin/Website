@@ -4,6 +4,7 @@ import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import '@fontsource/montserrat';
+import '@fontsource/nunito';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { customTheme } from '../styles/theme';
@@ -49,13 +50,26 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ProtocolXProvider>
         <ChakraProvider theme={customTheme}>
           <VStack
-            minH={'99vh'}
-            w="full"
+            minH={'100vh'}
+            w="100vw"
+            position="fixed"
+            top="0px"
+            left="0px"
+            zIndex={-1}
             backgroundImage={'url(./bg.jpg)'}
             backgroundSize="cover"
             // backgroundPosition={'center'}
-            backgroundAttachment="fixed"
+            backgroundAttachment="scroll"
             backgroundRepeat={'no-repeat'}
+          ></VStack>
+          <VStack
+            minH={'99vh'}
+            w="full"
+            // backgroundImage={'url(./bg.jpg)'}
+            // backgroundSize="cover"
+            // // backgroundPosition={'center'}
+            // backgroundAttachment="fixed"
+            // backgroundRepeat={'no-repeat'}
           >
             <Navbar />
             <Component {...pageProps} />

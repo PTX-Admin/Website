@@ -25,7 +25,7 @@ export default function HomeFAQ() {
     });
   };
   return (
-    <div data-aos="zoom-out-down" id="faq" className={styles.faq}>
+    <div id="faq" className={styles.faq}>
       <div className={styles.headingDiv}>
         <h1>
           <span className={styles.red}>F</span>REQUENLY <span className={styles.red}>A</span>SKED{' '}
@@ -36,34 +36,13 @@ export default function HomeFAQ() {
       <div className={styles.faqDiv}>
         <div className={styles.faqQDiv}>
           <div
-            data-num={0}
-            onClick={clickHandler}
-            className={`${styles.faqBtn} ${open[0] ? styles.borderRadius : ''}`}
-          >
-            <p className={`${open[0] ? styles.activeBtn : ''}`}>
-              Where to join ProtocolX Community?
-            </p>
-            <FontAwesomeIcon
-              className={`${open[0] ? styles.activeBtn : ''}`}
-              icon={faChevronDown}
-            />
-          </div>
-          <div className={`${styles.faqAnswer} ${open[0] ? styles.active : ''}`}>
-            <p className={styles.answer}>
-              You can join us on our Discord at{' '}
-              <a target={'blank'} href="https://www.discord.com/ProtocolX">
-                https://www.discord.com/ProtocolX
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className={styles.faqQDiv}>
-          <div
             data-num={1}
             onClick={clickHandler}
             className={`${styles.faqBtn} ${open[1] ? styles.borderRadius : ''}`}
           >
-            <p className={`${open[1] ? styles.activeBtn : ''}`}>How can I buy $PTX?</p>
+            <p className={`${open[1] ? styles.activeBtn : ''}`}>
+              How will ProtocolX be different than the other rebase-style protocols?
+            </p>
             <FontAwesomeIcon
               className={`${open[1] ? styles.activeBtn : ''}`}
               icon={faChevronDown}
@@ -71,8 +50,12 @@ export default function HomeFAQ() {
           </div>
           <div className={`${styles.faqAnswer} ${open[1] ? styles.active : ''}`}>
             <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
+              ProtocolX understands the main issues that rebase and auto-staking protocols have run
+              into. Generally speaking, inflation and lack of innovation and growth lead to an
+              eventual demise. Here at ProtocolX, we actively combat inflationary aspects on
+              multiple fronts, innovate and adapt to DeFi trends with growth aspects (farms/pools,
+              staking, DEX, XShares), and will advance the ecosystem with multiple and diverse
+              cryptocurrency and real-world innovations.
             </p>
           </div>
         </div>
@@ -82,7 +65,7 @@ export default function HomeFAQ() {
             onClick={clickHandler}
             className={`${styles.faqBtn} ${open[2] ? styles.borderRadius : ''}`}
           >
-            <p className={`${open[2] ? styles.activeBtn : ''}`}>Is $PTX ready for market?</p>
+            <p className={`${open[2] ? styles.activeBtn : ''}`}>How will you burn tokens?</p>
             <FontAwesomeIcon
               className={`${open[2] ? styles.activeBtn : ''}`}
               icon={faChevronDown}
@@ -90,8 +73,11 @@ export default function HomeFAQ() {
           </div>
           <div className={`${styles.faqAnswer} ${open[2] ? styles.active : ''}`}>
             <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
+              ProtocolX will implement token burns by various mechanisms. From the beginning, a
+              portion of all buy and sales fees go into a pool that is 100% utilized to conduct
+              burns. As the protocol develops, there will be a lottery system for token burns, NFT
+              mechanism for token burns, investment/bot trading strategy for token burns, and manual
+              token burns from the team/treasury.
             </p>
           </div>
         </div>
@@ -101,7 +87,9 @@ export default function HomeFAQ() {
             onClick={clickHandler}
             className={`${styles.faqBtn} ${open[3] ? styles.borderRadius : ''}`}
           >
-            <p className={`${open[3] ? styles.activeBtn : ''}`}>Is $PTX too good to be true?</p>
+            <p className={`${open[3] ? styles.activeBtn : ''}`}>
+              How can you help the token price be sustainable?
+            </p>
             <FontAwesomeIcon
               className={`${open[3] ? styles.activeBtn : ''}`}
               icon={faChevronDown}
@@ -109,8 +97,10 @@ export default function HomeFAQ() {
           </div>
           <div className={`${styles.faqAnswer} ${open[3] ? styles.active : ''}`}>
             <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
+              ProtocolX is inherently an inflationary token, as it does not have a fixed supply and
+              rebases add to the total supply. By utilizing burns and the Sustainability Emissions
+              Model (APR decreases by 10% per month for 12 months until it hits a .5% daily APR),
+              ProtocolX is able to put a positive price pressure action on the token price.
             </p>
           </div>
         </div>
@@ -120,7 +110,9 @@ export default function HomeFAQ() {
             onClick={clickHandler}
             className={`${styles.faqBtn} ${open[4] ? styles.borderRadius : ''}`}
           >
-            <p className={`${open[4] ? styles.activeBtn : ''}`}>Why $PTX?</p>
+            <p className={`${open[4] ? styles.activeBtn : ''}`}>
+              What is the benefit of having a XShare NFT?
+            </p>
             <FontAwesomeIcon
               className={`${open[4] ? styles.activeBtn : ''}`}
               icon={faChevronDown}
@@ -128,8 +120,11 @@ export default function HomeFAQ() {
           </div>
           <div className={`${styles.faqAnswer} ${open[4] ? styles.active : ''}`}>
             <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
+              XShare NFTs are your way to get a piece of the revenue from all aspects of ProtocolX,
+              now and into the future. From the rebase protocol, 2% of the buy fees and 2% of the
+              sales fee go directly to a pool that is distributed to XShare NFT holders. As this
+              protocol grows and we create additional revenue streams, XShares will continue to
+              increase in their reward potential overtime.
             </p>
           </div>
         </div>
@@ -139,7 +134,7 @@ export default function HomeFAQ() {
             onClick={clickHandler}
             className={`${styles.faqBtn} ${open[5] ? styles.borderRadius : ''}`}
           >
-            <p className={`${open[5] ? styles.activeBtn : ''}`}>When launch?</p>
+            <p className={`${open[5] ? styles.activeBtn : ''}`}>How do I begin?</p>
             <FontAwesomeIcon
               className={`${open[5] ? styles.activeBtn : ''}`}
               icon={faChevronDown}
@@ -147,52 +142,12 @@ export default function HomeFAQ() {
           </div>
           <div className={`${styles.faqAnswer} ${open[5] ? styles.active : ''}`}>
             <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
+              Getting involved in ProtocolX is quite simple! Ensure you are connected to the Binance
+              Smart Chain, enter our XSWAP dex or the contract address on PancakeSwap, and set
+              slippage to 15% for buys and 20% for sales, and exchange BNB or BUSD for PTX.
             </p>
           </div>
         </div>
-        <div className={styles.faqQDiv}>
-          <div
-            data-num={6}
-            onClick={clickHandler}
-            className={`${styles.faqBtn} ${open[6] ? styles.borderRadius : ''}`}
-          >
-            <p className={`${open[6] ? styles.activeBtn : ''}`}>
-              What is the $PTX staking & farming?
-            </p>
-            <FontAwesomeIcon
-              className={`${open[6] ? styles.activeBtn : ''}`}
-              icon={faChevronDown}
-            />
-          </div>
-          <div className={`${styles.faqAnswer} ${open[6] ? styles.active : ''}`}>
-            <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
-            </p>
-          </div>
-        </div>
-        <div className={styles.faqQDiv}>
-          <div
-            data-num={7}
-            onClick={clickHandler}
-            className={`${styles.faqBtn} ${open[7] ? styles.borderRadius : ''}`}
-          >
-            <p className={`${open[7] ? styles.activeBtn : ''}`}>Is their buy or sell fees?</p>
-            <FontAwesomeIcon
-              className={`${open[7] ? styles.activeBtn : ''}`}
-              icon={faChevronDown}
-            />
-          </div>
-          <div className={`${styles.faqAnswer} ${open[7] ? styles.active : ''}`}>
-            <p className={styles.answer}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non tenetur perferendis
-              tempora ullam. Ratione, recusandae!
-            </p>
-          </div>
-        </div>
-
         {
           // when you add a new faq make sure to increment the value in the brackets
         }

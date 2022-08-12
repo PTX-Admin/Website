@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import { Button, Image } from '@chakra-ui/react';
@@ -12,6 +12,16 @@ import circle from '../../Assets/home/header/circle.png';
 
 function Hero() {
   const router = useRouter();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const item = document.querySelector('#tsparticles canvas');
+      if (!item) return;
+      item.attributes[0].value =
+        'position: absolute !important; width: 100% !important; height: 100% !important; pointer-events: none; z-index: 0 !important; top: 0px !important; left: 0px !important;';
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
@@ -105,6 +115,7 @@ function Hero() {
             },
             detectRetina: true,
           }}
+          style={{ position: 'absolute' }}
         />
       </div>
       <div className={styles.hero}>

@@ -6,7 +6,6 @@
   justify-content: center;
   height: auto;
   text-align: center;
-  padding: 1rem 0rem;
   gap: 2rem;
   margin-top: 200px;
   object-fit: contain;
@@ -112,6 +111,7 @@
   .faq {
     flex-direction: column;
     margin-top: 160px;
+    padding: 1rem;
   }
   .cube {
     top: -60%;

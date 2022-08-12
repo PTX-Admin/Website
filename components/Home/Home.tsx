@@ -1,5 +1,7 @@
 import HomeHeader from '../HomeHeader/HomeHeader';
 import 'aos/dist/aos.css';
+import styles from './Home.module.css';
+
 import HomeWorks from '../HomeWorks';
 import HomeModel from '../HomeModel';
 import HomeBoxes1 from '../HomeBoxes1';
@@ -12,8 +14,10 @@ import HomeRoadmap from '../HomeRoadmap';
 export default function Home() {
   return (
     <>
-      <HomeHeader />
-      <HomeWorks />
+      <div className={styles.heroBg}>
+        <HomeHeader />
+        <HomeWorks />
+      </div>
       <HomeModel />
       <HomeBoxes1 />
       <HomeBoxes2 />
