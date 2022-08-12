@@ -13,7 +13,7 @@ import { bscChain } from '../config/networks';
 import { ProtocolXProvider } from '../context/ProtocolXContext';
 import Navbar from '../components/Navbar';
 
-const { provider } = configureChains(
+const { provider, chains } = configureChains(
   [bscChain],
   [
     jsonRpcProvider({
@@ -30,12 +30,12 @@ const wagmiClient = createClient({
   provider,
   connectors: [
     new MetaMaskConnector({ chains: [bscChain] }),
-    new CoinbaseWalletConnector({
-      chains: [bscChain],
-      options: {
-        appName: 'Protocol X',
-      },
-    }),
+    // new CoinbaseWalletConnector({
+    //   chains: chains,
+    //   options: {
+    //     appName: 'Protocol X',
+    //   },
+    // }),
     new WalletConnectConnector({
       chains: [bscChain],
       options: {

@@ -94,6 +94,7 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
         symbol: data.pages[0][2],
         investmentToken: data.pages[0][3],
         startsAt: Number(data.pages[0][4]),
+        // startsAt: 1660318367,
         endsAt: Number(data.pages[0][5]),
         userCap: format(data.pages[0][6], 18),
         totalCap: format(data.pages[0][7], 18),
