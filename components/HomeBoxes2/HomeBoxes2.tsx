@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../HomeBoxes1/HomeBoxes1.module.css';
 import { Image } from '@chakra-ui/react';
 import bulb from '../../Assets/home/boxes/bulb.png';
+import nodes from '../../Assets/home/boxes/nodes.png';
 import circle3 from '../../Assets/home/boxes/circle3.svg';
 import circle4 from '../../Assets/home/boxes/circle4.svg';
 
@@ -9,7 +10,8 @@ export default function HomeBoxes2() {
   return (
     <div className={styles.boxCont2}>
       <div className={styles.row}>
-        <Image fallbackSrc={bulb.blurDataURL} src={bulb.src} className={styles.bulb} alt="" />
+        <Image fallbackSrc={nodes.blurDataURL} src={nodes.src} className={styles.node} alt="" />
+        {/* <Image fallbackSrc={bulb.blurDataURL} src={bulb.src} className={styles.bulb} alt="" /> */}
         <div data-aos={'fade-right'} className={styles.box}>
           <div className={styles.wrapper}>
             <Image

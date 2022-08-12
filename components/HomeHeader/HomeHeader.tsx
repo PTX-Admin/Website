@@ -143,7 +143,7 @@ function Hero() {
           />
           <Image fallbackSrc={circle.blurDataURL} src={icon.src} className={styles.icon} alt="" />
         </div>
-        <Image fallbackSrc={circle.blurDataURL} src={circle.src} className={styles.circle} alt="" />
+        {/* <Image fallbackSrc={circle.blurDataURL} src={circle.src} className={styles.circle} alt="" /> */}
       </div>
     </div>
   );

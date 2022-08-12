@@ -58,7 +58,7 @@
   width: 100%;
 
   height: max(90vh, 800px);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   padding-top: 4rem;
 }
 .boxCont2 {
@@ -66,7 +66,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100% !important;
+  height: max(90vh, 800px);
   background-color: #0c1013;
   height: max(90vh, 800px);
   /* overflow-x: hidden; */
@@ -89,6 +89,15 @@
   bottom: 50%;
   object-fit: contain;
   mix-blend-mode: color-dodge;
+}
+.node {
+  position: absolute;
+  max-width: 100%;
+  top: -50%;
+  left: 150px;
+  object-fit: contain;
+  /* mix-blend-mode: color-dodge; */
+  z-index: 0;
 }
 .patt {
   position: absolute;
@@ -171,6 +180,7 @@
   .bulb {
     right: 0;
   }
+
   .boxCont {
     background-size: cover;
   }
@@ -179,7 +189,14 @@
   .row {
     flex-direction: column;
   }
+  .node {
+    top: -0%;
+  }
   .boxCont {
+    height: auto;
+    padding: 3rem 0rem;
+  }
+  .boxCont2 {
     height: auto;
     padding: 3rem 0rem;
   }

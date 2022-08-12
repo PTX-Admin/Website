@@ -5,6 +5,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import '@fontsource/montserrat';
 import '@fontsource/nunito';
+import '@fontsource/poppins';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { customTheme } from '../styles/theme';

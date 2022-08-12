@@ -30,7 +30,7 @@ export default function HomeRoadmap() {
             <li className={styles.roadItem}> Farming/Staking platform </li>
             <li className={styles.roadItem}> Publish Official Whitepaper </li>
             <li className={styles.roadItem}> Develop and Launch </li>
-            <li className={styles.roadItem}> website interface </li>
+            <li className={styles.roadItem}> Website interface </li>
             <li className={styles.roadItem}> PR Marketing </li>
             <li className={styles.roadItem}> (YouTube/Twitter/etc.) </li>
             <li className={styles.roadItem}> Airdrop to $XSWAP </li>

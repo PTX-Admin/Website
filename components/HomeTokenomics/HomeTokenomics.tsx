@@ -46,7 +46,7 @@ export default function HomeTokenomics() {
             </div>
           </div>
         </div>
-        <div data-aos="fade-left" className={styles.rightToken}>
+        <div data-aos="fade-left" className={styles.rightToken} style={{ zIndex: 99 }}>
           <h1 className={styles.tokenHead}>
             Distribution<span className={styles.white}> of Tokens</span>
           </h1>

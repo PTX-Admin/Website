@@ -15,6 +15,7 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import ConnectWalletButton from '../ConnectWalletButton';
 import { useRouter } from 'next/router';
+// import PDF from '../../public/PTX_WP.pdf';
 
 interface ILink {
   label: string;
@@ -32,7 +33,7 @@ const Links: ILink[] = [
   },
   {
     label: 'whitepaper',
-    path: '/',
+    path: '/PTX_WP.pdf',
   },
   {
     label: 'about us',
@@ -82,7 +83,7 @@ export default function Nav() {
             objectFit={'contain'}
             maxW={{ base: '100px', md: '256px' }}
           />
-          <HStack gap={4} fontWeight="bold" fontSize={'xl'} display={{ base: 'none', xl: 'flex' }}>
+          <HStack gap={4} fontWeight="bold" fontSize={'lg '} display={{ base: 'none', xl: 'flex' }}>
             {Links.map((val) => (
               <NavLink link={val} key={val.label} />
             ))}
