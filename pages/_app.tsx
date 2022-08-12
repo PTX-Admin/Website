@@ -12,6 +12,7 @@ import { customTheme } from '../styles/theme';
 import { bscChain } from '../config/networks';
 import { ProtocolXProvider } from '../context/ProtocolXContext';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const { provider } = configureChains(
   [bscChain],
@@ -66,6 +67,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <VStack
             minH={'99vh'}
             w="full"
+            spacing={'0px'}
             // backgroundImage={'url(./bg.jpg)'}
             // backgroundSize="cover"
             // // backgroundPosition={'center'}
@@ -74,6 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           >
             <Navbar />
             <Component {...pageProps} />
+            <Footer />
           </VStack>
         </ChakraProvider>
       </ProtocolXProvider>

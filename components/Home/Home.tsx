@@ -10,6 +10,7 @@ import HomeTreasury from '../HomeTreasury';
 import HomeTokenomics from '../HomeTokenomics';
 import HomeFAQ from '../HomeFAQ';
 import HomeRoadmap from '../HomeRoadmap';
+import SimpleSlider from '../HomePartners';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeBoxes2 />
       <HomeTreasury />
       <HomeTokenomics />
+      <SimpleSlider />
       <HomeFAQ />
       <HomeRoadmap />
     </>

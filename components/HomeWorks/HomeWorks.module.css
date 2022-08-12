@@ -56,18 +56,19 @@
   max-width: 100%;
   object-fit: contain;
   right: 150px;
-  bottom: 0;
+  bottom: 85%;
   mix-blend-mode: color-dodge;
   z-index: 0;
 }
 @media screen and (max-width: 1702px) {
   .cog {
+    bottom: 82%;
     right: 0;
   }
 }
 @media screen and (max-width: 1280px) {
   .cog {
-    top: 36%;
+    bottom: 82%;
   }
   .workCont {
     padding-bottom: 5rem;
@@ -82,7 +83,7 @@
   }
   .cog {
     top: auto;
-    bottom: 0;
+    bottom: 81%;
   }
 }
 @media screen and (max-width: 806px) {
@@ -104,7 +105,7 @@
     font-size: 16px;
   }
   .cog {
-    bottom: 5%;
+    bottom: 80%;
     max-width: 300px;
   }
 }

@@ -5,7 +5,7 @@ import mid from '../../Assets/home/roadmap/mid.png';
 
 export default function HomeRoadmap() {
   return (
-    <div className={styles.roadCont} style={{ marginTop: '0px' }}>
+    <div className={styles.roadCont} style={{ marginTop: '0px', backgroundColor: 'green' }}>
       <Image fallbackSrc={time.blurDataURL} src={time.src} className={styles.time} alt="" />
       <div className={styles.roadmap}>
         <Image
