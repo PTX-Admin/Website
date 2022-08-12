@@ -37,6 +37,7 @@ const wagmiClient = createClient({
     //     appName: 'Protocol X',
     //   },
     // }),
+
     new WalletConnectConnector({
       chains: [bscChain],
       options: {
