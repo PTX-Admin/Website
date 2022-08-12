@@ -55,18 +55,19 @@ export default function Footer() {
             <Button
               px={0}
               border={0}
-              onClick={() => router.push('/Presale', undefined, { shallow: true })}
+              onClick={() => router.push('/presale', undefined, { shallow: true })}
             >
               Presale
             </Button>
             <Button
               px={0}
               border={0}
-              onClick={() => router.push('/', undefined, { shallow: true })}
+              onClick={() => router.push('/PTX_WP.pdf', undefined, { shallow: true })}
             >
               Whitepaper
             </Button>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -78,6 +79,7 @@ export default function Footer() {
           <VStack pt={6} alignItems={'start'}>
             <Text color={'#DA2A2A'}>PRODUCTS</Text>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -85,6 +87,7 @@ export default function Footer() {
               $PTX
             </Button>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -92,6 +95,7 @@ export default function Footer() {
               XShare
             </Button>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -99,6 +103,7 @@ export default function Footer() {
               XSwap
             </Button>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -106,6 +111,7 @@ export default function Footer() {
               Dex
             </Button>
             <Button
+              disabled
               px={0}
               border={0}
               onClick={() => router.push('/', undefined, { shallow: true })}
@@ -141,10 +147,10 @@ export default function Footer() {
       <Divider className=""></Divider>
       <HStack px={'5%'} w={'full'} bgColor={'#000305'} justifyContent={'space-between'}>
         <Text fontSize={'x-small'}>
-          COPYRIGHT © 2022 - PROTOCOLX | Terms & Conditions | designed by woxcreativedesign
+          COPYRIGHT © 2022 - PROTOCOLX |{/*  Terms & Conditions | */} designed by woxcreativedesign
         </Text>
         <Box>
-          <a href="" target="_blank" rel="noreferrer">
+          {/*           <a href="" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
               color={'#202932'}
@@ -152,7 +158,7 @@ export default function Footer() {
               aria-label="Telegram"
               icon={<FaTelegram />}
             />
-          </a>
+          </a> */}
           <a href="https://www.twitter.com/ProtocolX_" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
@@ -171,7 +177,7 @@ export default function Footer() {
               icon={<FaDiscord />}
             />
           </a>
-          <a href="" target="_blank" rel="noreferrer">
+          {/*           <a href="" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
               color={'#202932'}
@@ -206,7 +212,7 @@ export default function Footer() {
               aria-label="Reddit"
               icon={<FaRedditAlien />}
             />
-          </a>
+          </a> */}
         </Box>
       </HStack>
     </Box>
