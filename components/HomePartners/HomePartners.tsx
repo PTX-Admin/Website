@@ -12,55 +12,56 @@ import bg from '../../Assets/home/partners/partnersbg.jpg';
 export default function SimpleSlider() {
   return (
     <Box>
-      <Text textAlign={'center'} fontWeight={600} lineHeight={'63px'} fontSize={'42px'}>
+      <Text pb={10} textAlign={'center'} fontWeight={600} lineHeight={'63px'} fontSize={'42px'}>
         PARTNERSHIPS
       </Text>
-      <HStack maxWidth={'80vw'}>
+      <HStack maxWidth={'100vw'}>
         <Carousel
+          stopOnHover={false}
           showArrows={false}
-          autoPlay
-          infiniteLoop
+          autoPlay={true}
+          infiniteLoop={true}
           showIndicators={false}
           showStatus={false}
+          transitionTime={15100}
+          interval={15000}
+          centerMode={false}
         >
-          <Flex>
-            <Image objectFit={'contain'} maxW={'50%'} src="./solar.png" alt="" />
+          <Flex justifyContent={'space-around'}>
+            <Image objectFit={'contain'} maxW={'25%'} src="./solar.png" alt="" />
             <Image
               objectFit={'contain'}
-              maxW={'50%'}
+              maxW={'25%'}
               src={assure.src}
               fallbackSrc={assure.blurDataURL}
               alt=""
             />
-          </Flex>
-          <Flex>
             <Image
               objectFit={'contain'}
-              maxW={'50%'}
+              maxW={'25%'}
               src={ego.src}
               fallbackSrc={ego.blurDataURL}
               alt=""
             />
-
+          </Flex>
+          <Flex justifyContent={'space-around'}>
             <Image
               objectFit={'contain'}
-              maxW={'50%'}
+              maxW={'25%'}
               src={mdb.src}
               fallbackSrc={mdb.blurDataURL}
               alt=""
             />
-          </Flex>
-          <Flex>
             <Image
               objectFit={'contain'}
-              maxW={'50%'}
+              maxW={'25%'}
               src={newshari.src}
               fallbackSrc={newshari.blurDataURL}
               alt=""
             />
             <Image
               objectFit={'contain'}
-              maxW={'50%'}
+              maxW={'25%'}
               src={silver.src}
               fallbackSrc={silver.blurDataURL}
               alt=""
