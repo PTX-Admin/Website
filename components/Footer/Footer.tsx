@@ -20,6 +20,7 @@ import {
   FaRedditAlien,
 } from 'react-icons/fa';
 import { useRouter } from 'next/router';
+import BuiltBySolar from '../BuiltBySolar';
 
 export default function Footer() {
   const router = useRouter();
@@ -40,6 +41,7 @@ export default function Footer() {
             finance. Having one basic formula or business model in a protocol opens the opportunity
             for significant failure points, often reliyingon one avenue for growth and development.
           </Text>
+          <BuiltBySolar />
         </VStack>
         <Grid
           templateColumns={{
