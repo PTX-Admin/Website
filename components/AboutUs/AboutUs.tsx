@@ -13,7 +13,7 @@ export default function AboutUs() {
       <Text fontWeight={900} fontSize={'50px'}>
         Protocol X Team
       </Text>
-      <HStack alignItems={'start'}>
+      <HStack alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
@@ -40,7 +40,7 @@ export default function AboutUs() {
           </Text>
         </Flex>
       </HStack>
-      <HStack alignItems={'start'}>
+      <HStack alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
@@ -68,7 +68,7 @@ export default function AboutUs() {
           </Text>
         </Flex>
       </HStack>
-      <HStack alignItems={'start'}>
+      <HStack alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
@@ -100,8 +100,7 @@ export default function AboutUs() {
           </Text>
         </Flex>
       </HStack>
-
-      <HStack alignItems={'start'}>
+      <HStack alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
@@ -129,8 +128,7 @@ export default function AboutUs() {
           </Text>
         </Flex>
       </HStack>
-
-      <HStack alignItems={'start'}>
+      <HStack alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
@@ -157,8 +155,7 @@ export default function AboutUs() {
           </Text>
         </Flex>
       </HStack>
-
-      <HStack pb={20} alignItems={'start'}>
+      <HStack pb={20} alignItems={'start'} px={2}>
         <Flex
           minW={'140px'}
           pr={5}
