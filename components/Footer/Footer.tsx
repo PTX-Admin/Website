@@ -18,9 +18,14 @@ import {
   FaLinkedinIn,
   FaGithub,
   FaRedditAlien,
+  FaYoutube,
+  FaMedium,
+  FaMediumM,
+  FaTelegramPlane,
 } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import BuiltBySolar from '../BuiltBySolar';
+import AssureIcon from '../../Assets/footer/AssureIcon';
 
 export default function Footer() {
   const router = useRouter();
@@ -28,7 +33,7 @@ export default function Footer() {
   return (
     <Box>
       <Flex pb={5} gap={20} px={'5%'} pt={'40px'} bgColor={'#00060A'}>
-        <VStack flex={1}>
+        <VStack pt={6} flex={1}>
           <Image
             alignItems={'flex-start'}
             src="/logo.png"
@@ -69,13 +74,26 @@ export default function Footer() {
               Whitepaper
             </Button>
             <Button
-              disabled
               px={0}
               border={0}
-              onClick={() => router.push('/', undefined, { shallow: true })}
+              onClick={() => router.push('/about', undefined, { shallow: true })}
             >
               About us
             </Button>
+            <a href="https://medium.com/@ProtocolXDeFi" target="_blank" rel="noreferrer">
+              <Button px={0} leftIcon={<FaMediumM />} border={0}>
+                Medium
+              </Button>
+            </a>
+            <a
+              href="https://www.assuredefi.io/projects/protocolx/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button px={0} leftIcon={<AssureIcon size="15px" />} border={0}>
+                Assure KYC
+              </Button>
+            </a>
           </VStack>
 
           <VStack pt={6} alignItems={'start'}>
@@ -124,23 +142,27 @@ export default function Footer() {
           <VStack pt={6} alignItems={'start'}>
             <Text color={'#DA2A2A'}>COMMUNITY</Text>
             <a href="https://www.twitter.com/ProtocolX_" target="_blank" rel="noreferrer">
-              <Button
-                px={0}
-                leftIcon={<FaTwitter />}
-                border={0}
-                onClick={() => router.push('/', undefined, { shallow: true })}
-              >
+              <Button px={0} leftIcon={<FaTwitter />} border={0}>
                 Twitter
               </Button>
             </a>
             <a href="https://discord.gg/protocolX" target="_blank" rel="noreferrer">
-              <Button
-                px={0}
-                leftIcon={<FaDiscord />}
-                border={0}
-                onClick={() => router.push('/', undefined, { shallow: true })}
-              >
+              <Button px={0} leftIcon={<FaDiscord />} border={0}>
                 Discord
+              </Button>
+            </a>
+            <a href="https://t.me/ProtocolX_PTX" target="_blank" rel="noreferrer">
+              <Button px={0} leftIcon={<FaTelegramPlane />} border={0}>
+                Telegram
+              </Button>
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCaxXFz8aQkyQnqEMdNrkUxw"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button px={0} leftIcon={<FaYoutube />} border={0}>
+                Youtube
               </Button>
             </a>
           </VStack>
@@ -152,7 +174,7 @@ export default function Footer() {
           COPYRIGHT © 2022 - PROTOCOLX |{/*  Terms & Conditions | */} designed by woxcreativedesign
         </Text>
         <Box>
-          {/*           <a href="" target="_blank" rel="noreferrer">
+          <a href="https://t.me/ProtocolX_PTX" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
               color={'#202932'}
@@ -160,7 +182,7 @@ export default function Footer() {
               aria-label="Telegram"
               icon={<FaTelegram />}
             />
-          </a> */}
+          </a>
           <a href="https://www.twitter.com/ProtocolX_" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
@@ -179,6 +201,38 @@ export default function Footer() {
               icon={<FaDiscord />}
             />
           </a>
+          <a
+            href="https://www.youtube.com/channel/UCaxXFz8aQkyQnqEMdNrkUxw"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <IconButton
+              border={0}
+              color={'#202932'}
+              fontSize={'2xl'}
+              aria-label="Youtube"
+              icon={<FaYoutube />}
+            />
+          </a>
+          <a href="https://medium.com/@ProtocolXDeFi" target="_blank" rel="noreferrer">
+            <IconButton
+              border={0}
+              color={'#202932'}
+              fontSize={'2xl'}
+              aria-label="Medium"
+              icon={<FaMedium />}
+            />
+          </a>
+          <a href="https://www.assuredefi.io/projects/protocolx/" target="_blank" rel="noreferrer">
+            <IconButton
+              border={0}
+              color={'#202932'}
+              fontSize={'2xl'}
+              aria-label="Medium"
+              icon={<AssureIcon />}
+            />
+          </a>
+
           {/*           <a href="" target="_blank" rel="noreferrer">
             <IconButton
               border={0}

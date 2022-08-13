@@ -36,7 +36,6 @@ const Home: NextPage = () => {
         <PresalePurchase />
         {/* <PresaleProjectInfo /> */}
       </VStack>
-      <BuiltBySolar />
       <ToastContainer
         position="top-center"
         autoClose={5000}

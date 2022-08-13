@@ -72,6 +72,7 @@ function NavLink({ link }: { link: ILink }) {
 
 export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
   return (
     <>
@@ -81,7 +82,9 @@ export default function Nav() {
             src="/logo.png"
             alt="ProtocolX Logo"
             objectFit={'contain'}
+            cursor={'pointer'}
             maxW={{ base: '100px', md: '256px' }}
+            onClick={() => router.push('/', undefined, { shallow: true })}
           />
           <HStack gap={4} fontWeight="bold" fontSize={'lg '} display={{ base: 'none', xl: 'flex' }}>
             {Links.map((val) => (
