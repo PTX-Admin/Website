@@ -1,6 +1,7 @@
 import { Heading, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import AboutUs from '../../components/AboutUs';
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       <VStack minH="90vh" justifyContent={'center'}>
-        <Heading>This page is under construction, come back in a couple days.</Heading>
+        <AboutUs />
       </VStack>
     </>
   );
