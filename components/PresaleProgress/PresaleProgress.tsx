@@ -11,7 +11,8 @@ export default function PresaleProgres() {
 
   useEffect(() => {
     toast.success(
-      'SOFT CAP HAS BEEN HIT! The project will launch no matter how much more we raise.'
+      'SOFT CAP HAS BEEN HIT! The project will launch no matter how much more we raise.',
+      { toastId: 'softcap' }
     );
   }, []);
   return (
