@@ -13,7 +13,16 @@ export default function PresaleProgres() {
         <Spinner size="xl" />
       ) : (
         <>
-          {' '}
+          <Text
+            w="full"
+            textAlign={'center'}
+            fontWeight={700}
+            fontSize="xl"
+            pt={4}
+            textDecor="underline"
+          >
+            {'soft cap hit token will launch regardless of remaining raise'.toUpperCase()}
+          </Text>
           <HStack w="full" justifyContent={'space-between'}>
             <Text>Funds raised</Text>
             <Text>Goal</Text>
