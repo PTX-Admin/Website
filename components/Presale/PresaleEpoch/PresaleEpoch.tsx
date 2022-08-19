@@ -2,10 +2,10 @@ import { Divider, Grid, Spinner, Text, VStack } from '@chakra-ui/react';
 import moment from 'moment';
 import { useContext, useMemo, useState } from 'react';
 import { useAccount, useBalance } from 'wagmi';
-import { BUSDAddress, presaleContractConfig } from '../../config/constants';
-import { ProtocolXContext } from '../../context/ProtocolXContext';
-import useWeb3Formatter from '../../hooks/useWeb3Formatter';
-import { palette } from '../../styles/palette';
+import { BUSDAddress, presaleContractConfig } from '../../../config/constants';
+import { ProtocolXContext } from '../../../context/ProtocolXContext';
+import useWeb3Formatter from '../../../hooks/useWeb3Formatter';
+import { palette } from '../../../styles/palette';
 
 export default function PresaleEpoch() {
   const { Presale } = useContext(ProtocolXContext);

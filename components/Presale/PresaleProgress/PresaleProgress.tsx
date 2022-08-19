@@ -1,9 +1,9 @@
 import { Divider, HStack, Progress, Spinner, Text } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { ProtocolXContext } from '../../context/ProtocolXContext';
-import useWeb3Formatter from '../../hooks/useWeb3Formatter';
-import { palette } from '../../styles/palette';
+import { ProtocolXContext } from '../../../context/ProtocolXContext';
+import useWeb3Formatter from '../../../hooks/useWeb3Formatter';
+import { palette } from '../../../styles/palette';
 
 export default function PresaleProgres() {
   const { toFormattedValueNoDeciamls } = useWeb3Formatter();

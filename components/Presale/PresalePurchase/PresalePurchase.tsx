@@ -16,11 +16,11 @@ import moment from 'moment';
 import { useContext, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useContractWrite, erc20ABI, usePrepareContractWrite, useBalance, useAccount } from 'wagmi';
-import { BUSDAddress, presaleContractConfig } from '../../config/constants';
-import { ProtocolXContext } from '../../context/ProtocolXContext';
-import { palette } from '../../styles/palette';
-import ConnectWalletButton from '../ConnectWalletButton';
-import NetworkButton from '../NetworkButton';
+import { BUSDAddress, presaleContractConfig } from '../../../config/constants';
+import { ProtocolXContext } from '../../../context/ProtocolXContext';
+import { palette } from '../../../styles/palette';
+import ConnectWalletButton from '../../ConnectWalletButton';
+import NetworkButton from '../../NetworkButton';
 
 export default function PresalePurchase() {
   const { Presale } = useContext(ProtocolXContext);

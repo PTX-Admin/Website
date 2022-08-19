@@ -1,6 +1,6 @@
 import styles from './HomeTokenomics.module.css';
 import { Image } from '@chakra-ui/react';
-import coin from '../../Assets/home/tokenomics/coin.svg';
+import coin from '../../../Assets/home/tokenomics/coin.svg';
 
 export default function HomeTokenomics() {
   return (

@@ -1,7 +1,7 @@
 import styles from './HomeRoadmap.module.css';
 import { Image } from '@chakra-ui/react';
-import time from '../../Assets/home/roadmap/time.svg';
-import mid from '../../Assets/home/roadmap/mid.png';
+import time from '../../../Assets/home/roadmap/time.svg';
+import mid from '../../../Assets/home/roadmap/mid.png';
 
 export default function HomeRoadmap() {
   return (

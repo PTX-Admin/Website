@@ -10,7 +10,7 @@ import {
   Heading,
   Image,
 } from '@chakra-ui/react';
-import { palette } from '../../styles/palette';
+import { palette } from '../../../styles/palette';
 
 export default function PresaleProjectInfo() {
   return (

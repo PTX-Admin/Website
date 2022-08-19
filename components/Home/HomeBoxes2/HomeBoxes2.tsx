@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../HomeBoxes1/HomeBoxes1.module.css';
 import { Image } from '@chakra-ui/react';
-import bulb from '../../Assets/home/boxes/bulb.png';
-import nodes from '../../Assets/home/boxes/nodes.png';
-import circle3 from '../../Assets/home/boxes/circle3.svg';
-import circle4 from '../../Assets/home/boxes/circle4.svg';
+import bulb from '../../../Assets/home/boxes/bulb.png';
+import nodes from '../../../Assets/home/boxes/nodes.png';
+import circle3 from '../../../Assets/home/boxes/circle3.svg';
+import circle4 from '../../../Assets/home/boxes/circle4.svg';
 
 export default function HomeBoxes2() {
   return (

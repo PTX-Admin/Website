@@ -2,9 +2,9 @@ import React, { useCallback, useEffect } from 'react';
 import { Button, Image } from '@chakra-ui/react';
 import styles from './HomeHeader.module.css';
 import { useRouter } from 'next/router';
-import shield from '../../Assets/home/header/shield.png';
-import icon from '../../Assets/home/header/icon.png';
-import circle from '../../Assets/home/header/circle.png';
+import shield from '../../../Assets/home/header/shield.png';
+import icon from '../../../Assets/home/header/icon.png';
+import circle from '../../../Assets/home/header/circle.png';
 
 function Hero() {
   const router = useRouter();

@@ -3,7 +3,7 @@ import styles from './HomeFAQ.module.css';
 import { Image } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import cube from '../../Assets/home/FAQ/cubes.svg';
+import cube from '../../../Assets/home/FAQ/cubes.svg';
 
 export default function HomeFAQ() {
   // if you want to add more questions just add another false here or vice versa
