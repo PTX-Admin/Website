@@ -25,10 +25,10 @@ import NetworkButton from '../NetworkButton';
 export default function PresalePurchase() {
   const { Presale } = useContext(ProtocolXContext);
 
-  const started = useMemo(() => {
-    if (!Presale.startsAt) return false;
-    return moment(Presale.startsAt).isBefore(Date.now() / 1000);
-  }, [Presale.startsAt]);
+  const ended = useMemo(() => {
+    if (!Presale.endsAt) return false;
+    return moment(Presale.endsAt).isBefore(Date.now() / 1000);
+  }, [Presale.endsAt]);
 
   const [balance, setBalance] = useState<number>(0);
   const { address } = useAccount();
@@ -165,7 +165,7 @@ export default function PresalePurchase() {
           <Spinner size="md" color="black" />
         ) : (
           <>
-            {started ? (
+            {!ended ? (
               <>
                 {Presale.allowance && Presale.allowance > balance ? (
                   <>
@@ -227,7 +227,7 @@ export default function PresalePurchase() {
               </>
             ) : (
               <>
-                <NetworkButton disabled>NOT STARTED</NetworkButton>
+                <NetworkButton disabled>BUY TOKEN</NetworkButton>
               </>
             )}
           </>

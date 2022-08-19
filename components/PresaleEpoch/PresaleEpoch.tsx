@@ -111,7 +111,9 @@ export default function PresaleEpoch() {
           </>
         ) : (
           <>
-            <Text>Presale has ended</Text>
+            <Text alignSelf={'center'} gridColumn="span 3">
+              Presale has ended
+            </Text>
           </>
         )}
       </Grid>
