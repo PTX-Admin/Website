@@ -2,17 +2,14 @@ import type { AppProps } from 'next/app';
 import { ChakraProvider, VStack } from '@chakra-ui/react';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
+import '@rainbow-me/rainbowkit/styles.css';
 import '@fontsource/montserrat';
 import '@fontsource/nunito';
 import '@fontsource/poppins';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { customTheme } from '../styles/theme';
 import { bscChain } from '../config/networks';
 import { ProtocolXProvider } from '../context/ProtocolXContext';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { darkTheme, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
 const { provider, chains } = configureChains(
   [bscChain],
@@ -26,60 +23,27 @@ const { provider, chains } = configureChains(
   ]
 );
 
+const { connectors } = getDefaultWallets({
+  appName: 'Protocol X',
+  chains,
+});
+
 const wagmiClient = createClient({
   autoConnect: true,
   provider,
-  connectors: [
-    new MetaMaskConnector({ chains: [bscChain] }),
-    // new CoinbaseWalletConnector({
-    //   chains: chains,
-    //   options: {
-    //     appName: 'Protocol X',
-    //   },
-    // }),
-    new WalletConnectConnector({
-      chains: [bscChain],
-      options: {
-        qrcode: true,
-      },
-    }),
-  ],
+  connectors,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <ProtocolXProvider>
-        <ChakraProvider theme={customTheme}>
-          <VStack
-            minH={'100vh'}
-            w="100vw"
-            position="fixed"
-            top="0px"
-            left="0px"
-            zIndex={-1}
-            backgroundImage={'url(./bg.jpg)'}
-            backgroundSize="cover"
-            // backgroundPosition={'center'}
-            backgroundAttachment="scroll"
-            backgroundRepeat={'no-repeat'}
-          ></VStack>
-          <VStack
-            minH={'99vh'}
-            w="full"
-            spacing={'0px'}
-            // backgroundImage={'url(./bg.jpg)'}
-            // backgroundSize="cover"
-            // // backgroundPosition={'center'}
-            // backgroundAttachment="fixed"
-            // backgroundRepeat={'no-repeat'}
-          >
-            <Navbar />
+      <RainbowKitProvider chains={chains} theme={darkTheme()} showRecentTransactions={true}>
+        <ProtocolXProvider>
+          <ChakraProvider theme={customTheme}>
             <Component {...pageProps} />
-            <Footer />
-          </VStack>
-        </ChakraProvider>
-      </ProtocolXProvider>
+          </ChakraProvider>
+        </ProtocolXProvider>
+      </RainbowKitProvider>
     </WagmiConfig>
   );
 }
