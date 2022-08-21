@@ -3,7 +3,7 @@ import { ChakraProvider, VStack } from '@chakra-ui/react';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import '@rainbow-me/rainbowkit/styles.css';
-import '@fontsource/montserrat';
+import '@fontsource/montserrat/variable.css';
 import '@fontsource/nunito';
 import '@fontsource/poppins';
 import { customTheme } from '../styles/theme';

@@ -1,8 +1,14 @@
 import { ethers } from 'ethers';
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { erc20ABI, useAccount, useContractInfiniteReads } from 'wagmi';
-import { presaleContractConfig, BUSDAddress, secondsByDuration } from '../config/constants';
-import { IEpoch, IPresale } from '../config/types';
+import { erc20ABI, useAccount, useContractInfiniteReads, useContractReads } from 'wagmi';
+import {
+  presaleContractConfig,
+  BUSDAddress,
+  secondsByDuration,
+  ptxContractConfig,
+  deadWallet,
+} from '../config/constants';
+import { IEpoch, IPresale, ITokenDetails } from '../config/types';
 
 const emptyPresale: IPresale = {
   loading: true,
@@ -27,14 +33,32 @@ function buildEpoch(data: any) {
   return epoch;
 }
 
+async function getHolders(details: ITokenDetails) {
+  const holdersPageReq = await fetch(
+    `https://api.allorigins.win/get?url=https://bscscan.com/token/${ptxContractConfig.addressOrName}`
+  );
+  const holdersPageData = await holdersPageReq.json();
+
+  const holdersPageHTML = new DOMParser().parseFromString(holdersPageData.contents, 'text/html');
+  const holdersHtmlContent = holdersPageHTML.getElementById('ContentPlaceHolder1_tr_tokenHolders')
+    ?.lastElementChild?.children[1].firstElementChild?.firstElementChild?.innerHTML;
+  if (!holdersHtmlContent) return details;
+  const holders = holdersHtmlContent.match(/\d+/);
+  if (!holders) return details;
+  return { ...details, holders: Number(holders.join('')) };
+}
+
 export const ProtocolXContext = createContext<{
   Presale: IPresale;
+  tokenDetails: ITokenDetails;
 }>({
   Presale: emptyPresale,
+  tokenDetails: { loading: true },
 });
 
 export function ProtocolXProvider({ children }: { children: ReactNode }) {
   const [presale, setPresale] = useState<IPresale>(emptyPresale);
+  const [tokenDetails, setTokenDetails] = useState<ITokenDetails>({ loading: true });
 
   const { address } = useAccount();
 
@@ -44,7 +68,7 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
   };
 
   // getCurrentEpoch
-  const { refetch } = useContractInfiniteReads({
+  const {} = useContractInfiniteReads({
     cacheKey: 'epochData',
     contracts: () => [
       { ...presaleContractConfig, functionName: 'getCurrentEpoch' },
@@ -112,15 +136,53 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
     },
     cacheTime: secondsByDuration['day'],
   });
-  useEffect(() => {
-    refetch();
-    const interval = setInterval(() => {
-      refetch();
-    }, 5_000);
-    return () => clearInterval(interval);
-  }, []);
+
+  // getTokenDetails
+  const {} = useContractReads({
+    contracts: [
+      {
+        ...ptxContractConfig,
+        functionName: 'getCirculatingSupply',
+      },
+      {
+        ...ptxContractConfig,
+        functionName: 'balanceOf',
+        args: [deadWallet],
+      },
+      {
+        ...ptxContractConfig,
+        functionName: 'getLastRebasedTime',
+      },
+      {
+        ...ptxContractConfig,
+        functionName: 'getRebaseRate',
+      },
+      {
+        ...ptxContractConfig,
+        functionName: 'balanceOf',
+        args: [address],
+      },
+    ],
+    allowFailure: true,
+    watch: true,
+    staleTime: secondsByDuration['day'],
+    onSuccess(data) {
+      const obj: ITokenDetails = {
+        loading: false,
+        circulatingSupply: format(data[0], 5),
+        burned: format(data[1], 5),
+        nextRebase: 60 * 30 + Number(data[2]),
+        rebaseRate: Number(data[3]),
+        balance: format(data[4], 5),
+      };
+      console.log('💰', obj);
+      getHolders(obj).then((res) => setTokenDetails(res));
+    },
+  });
 
   return (
-    <ProtocolXContext.Provider value={{ Presale: presale }}>{children}</ProtocolXContext.Provider>
+    <ProtocolXContext.Provider value={{ Presale: presale, tokenDetails: tokenDetails }}>
+      {children}
+    </ProtocolXContext.Provider>
   );
 }

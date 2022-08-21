@@ -82,7 +82,7 @@ const LinkItem = ({ path, label, isExternal }: ILink) => {
   return (
     <Link href={path} display="flex" alignItems={'center'} isExternal={isExternal}>
       <HStack>
-        <Text>{label}</Text>
+        <Text fontWeight={500}>{label}</Text>
         {isExternal && <BiLinkExternal />}
       </HStack>
     </Link>
