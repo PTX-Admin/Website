@@ -111,7 +111,7 @@ export default function Sidebar({ selectedTab, setSelectedTab }: ISidebarProps) 
       <Stack
         display={{ base: 'none', xl: 'flex' }}
         justifyContent={'space-between'}
-        direction={{ base: 'column', xl: 'row' }}
+        direction={{ base: 'column', xl: 'row', '2xl': 'column' }}
         w="full"
         alignItems={'start'}
         spacing={4}
