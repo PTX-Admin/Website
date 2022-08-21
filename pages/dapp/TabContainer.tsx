@@ -14,6 +14,7 @@ export default function TabContainter({ tab, pair }: ITabContainerProps) {
   if (tab === tabs['dashboard'])
     return <Dashboard pairs={pair.pairs} schemaVersion={pair.schemaVersion} />;
   if (tab === tabs['vault']) return <Vault pairs={pair.pairs} schemaVersion={pair.schemaVersion} />;
-  if (tab === tabs['calculator']) return <Calculator />;
+  if (tab === tabs['calculator'])
+    return <Calculator pairs={pair.pairs} schemaVersion={pair.schemaVersion} />;
   return <></>;
 }

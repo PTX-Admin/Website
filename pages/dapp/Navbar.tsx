@@ -7,12 +7,20 @@ import {
   Link,
   useBreakpointValue,
   Text,
+  IconButton,
+  Stack,
+  FlexProps,
+  useDisclosure,
+  Collapse,
 } from '@chakra-ui/react';
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { FiMenu } from 'react-icons/fi';
+import { BiWallet } from 'react-icons/bi';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { link } from 'fs';
 import * as React from 'react';
 import { BiLinkExternal } from 'react-icons/bi';
 import logo from '../../Assets/dapp/logo.png';
+import { palette } from '../../styles/palette';
 
 interface ILink {
   label: string;
@@ -45,6 +53,7 @@ const links: ILink[] = [
 
 export const Navbar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const { onOpen, isOpen, onClose } = useDisclosure();
   return (
     <>
       <Flex justify="space-between" w="full" pt={4} px={{ base: '2.5%', md: '10%' }}>
@@ -73,7 +82,34 @@ export const Navbar = () => {
             </ButtonGroup>
           )}
         </HStack>
+        <IconButton
+          size={'md'}
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          aria-label={'Open Menu'}
+          display={{ lg: 'none' }}
+          onClick={isOpen ? onClose : onOpen}
+          variant="outline"
+        />
       </Flex>
+      <Collapse in={isOpen} animateOpacity>
+        <Box
+          px={{ base: '5%', md: '12%' }}
+          py={4}
+          display={{ lg: 'none' }}
+          borderTop="2px solid white"
+        >
+          <Stack as={'nav'} spacing={4}>
+            {links.map((val) => (
+              <LinkItem
+                key={val.label}
+                path={val.path}
+                label={val.label}
+                isExternal={val.isExternal}
+              />
+            ))}
+          </Stack>
+        </Box>
+      </Collapse>
     </>
   );
 };

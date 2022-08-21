@@ -104,8 +104,8 @@ const Home: NextPage = ({ pair }: any) => {
           alignContent={'start'}
           bg="linear-gradient(126.32deg, rgba(166, 0, 0, 0.2) 18.45%, rgba(128, 0, 0, 0.2) 39.01%, rgba(168, 0, 0, 0.2) 59.57%, rgba(61, 0, 0, 0.2) 80.13%);"
         >
-          <TabContainter tab={selectedTab} pair={pair} />
           <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+          <TabContainter tab={selectedTab} pair={pair} />
         </Flex>
       </Box>
     </>
