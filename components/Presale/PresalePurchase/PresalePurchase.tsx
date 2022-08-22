@@ -119,7 +119,7 @@ export default function PresalePurchase() {
                 REDEEM
               </NetworkButton>
             ) : (
-              <NetworkButton disabled>REDEEM</NetworkButton>
+              <NetworkButton>REDEEM</NetworkButton>
             )}
           </>
         )}
