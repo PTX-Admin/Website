@@ -189,9 +189,9 @@ export default function ConnectWalletButton() {
                       />
                     }
                     borderColor="red"
-                    onClick={() => addToken(presaleContractConfig.addressOrName, 'pPTX')}
+                    onClick={() => addToken('0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455', 'PTX')}
                   >
-                    Add $pPTX
+                    Add $PTX
                   </NetworkButton>
                 )}
               </VStack>
