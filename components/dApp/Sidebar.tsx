@@ -16,9 +16,9 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { FaDiscord, FaTwitter } from 'react-icons/fa';
-import { ITab, tabKeys, tabs } from '.';
 import DexscreenerLogo from '../../Assets/dapp/DexscreenerLogo';
 import { motion } from 'framer-motion';
+import { ITab, tabKeys, tabs } from '../../pages/dapp';
 
 interface ISidebarProps {
   selectedTab: ITab;

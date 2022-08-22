@@ -7,11 +7,11 @@ import { BiCalculator } from 'react-icons/bi';
 import bg from '../../Assets/landing/bg.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Navbar } from './Navbar';
-import Sidebar from './Sidebar';
-import TabContainter from './TabContainer';
 import { useEffect, useState } from 'react';
 import { IPairsResponse } from '../../config/types';
+import { Navbar } from '../../components/dApp/Navbar';
+import Sidebar from '../../components/dApp/Sidebar';
+import TabContainter from '../../components/dApp/TabContainer';
 
 export interface ITab {
   label: string;

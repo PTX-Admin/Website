@@ -1,0 +1,12 @@
+@keyframes lamboAnimation {
+  from {
+    left: 0;
+  }
+  to {
+    left: 75%;
+  }
+}
+
+.lambonimation {
+  animation: lamboAnimation 1s;
+}

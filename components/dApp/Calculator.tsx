@@ -14,7 +14,7 @@ import {
   Image,
   Skeleton,
 } from '@chakra-ui/react';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useAccount, useBalance } from 'wagmi';
 import logo from '../../Assets/landing/logo.png';
 import { presaleContractConfig, ptxContractConfig } from '../../config/constants';
@@ -23,6 +23,8 @@ import { ProtocolXContext } from '../../context/ProtocolXContext';
 import useWeb3Formatter from '../../hooks/useWeb3Formatter';
 import { palette } from '../../styles/palette';
 import DappItem from './DappItem';
+import tesla from '../../Assets/dapp/ptxTesla.png';
+import styles from './Calculator.module.css';
 
 export default function Calculator({ pairs }: IPairsResponse) {
   const [getPTXAmount, setPTXAmount] = useState<number>(0);
@@ -45,9 +47,21 @@ export default function Calculator({ pairs }: IPairsResponse) {
     },
   });
 
+  const [displayL, setDisplayL] = useState(false);
+  const [hasDisplayed, setHasDisplayed] = useState(false);
+
   const currentAPY = useMemo(() => {
     return ((1 + (tokenDetails.rebaseRate ?? 0 ?? 0) / 1e7) ** (48 * sliderValue) - 1) * 100;
   }, [sliderValue, tokenDetails.rebaseRate]);
+
+  async function displayLambo() {
+    if (hasDisplayed) return;
+    setDisplayL(true);
+    setTimeout(() => {
+      setDisplayL(false);
+    }, 1000);
+    setHasDisplayed(true);
+  }
 
   return (
     <VStack
@@ -58,7 +72,18 @@ export default function Calculator({ pairs }: IPairsResponse) {
       overflow={'auto'}
       data-aos="zoom-out"
       px={6}
+      position="relative"
     >
+      <Image
+        src={tesla.src}
+        w="248px"
+        objectFit={'contain'}
+        display={displayL ? 'box' : 'none'}
+        position="absolute"
+        top="50%"
+        transform={'scaleX(-1)'}
+        className={styles.lambonimation}
+      />
       <Text fontWeight={700} fontSize="2xl">
         CALCULATOR
       </Text>
@@ -324,7 +349,10 @@ export default function Calculator({ pairs }: IPairsResponse) {
         <Text fontSize={'lg'}>{sliderValue} days</Text>
         <Box w={'full'}>
           <Slider
-            onChange={(v) => setSliderValue(v)}
+            onChange={(v) => {
+              if (v === 365) displayLambo();
+              setSliderValue(v);
+            }}
             aria-label="slider-ex-4"
             defaultValue={30}
             min={1}

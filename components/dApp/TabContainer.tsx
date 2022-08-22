@@ -1,6 +1,6 @@
 import { Grid, Text, VStack } from '@chakra-ui/react';
-import { ITab, tabs } from '.';
 import { IPairsResponse } from '../../config/types';
+import { ITab, tabs } from '../../pages/dapp';
 import Calculator from './Calculator';
 import Dashboard from './Dashboard';
 import Vault from './Vault';
