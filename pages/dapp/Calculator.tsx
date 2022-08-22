@@ -12,12 +12,14 @@ import {
   SliderThumb,
   SliderTrack,
   Image,
+  Skeleton,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useAccount, useBalance } from 'wagmi';
 import logo from '../../Assets/landing/logo.png';
 import { presaleContractConfig, ptxContractConfig } from '../../config/constants';
 import { IPairsResponse } from '../../config/types';
+import { ProtocolXContext } from '../../context/ProtocolXContext';
 import useWeb3Formatter from '../../hooks/useWeb3Formatter';
 import { palette } from '../../styles/palette';
 import DappItem from './DappItem';
@@ -28,11 +30,13 @@ export default function Calculator({ pairs }: IPairsResponse) {
   const [getPTXPurchasedPrice, setPTXPurchasedPrice] = useState(0);
   const [getAPY, setAPY] = useState(0);
 
+  const { tokenDetails } = useContext(ProtocolXContext);
+
   const [sliderValue, setSliderValue] = useState(30);
   const { toFormattedValue } = useWeb3Formatter();
   const [balance, setBalance] = useState<number>(0);
   const { address } = useAccount();
-  const { isLoading } = useBalance({
+  const {} = useBalance({
     addressOrName: address,
     token: ptxContractConfig.addressOrName,
     watch: true,
@@ -61,50 +65,103 @@ export default function Calculator({ pairs }: IPairsResponse) {
         rowGap={6}
         pt={6}
       >
-        <DappItem
-          label="PTX PRICE"
-          content={
-            pairs === null ? (
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
-                0
-              </Text>
-            ) : (
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
-                ${toFormattedValue(Number(pairs[0].priceUsd))}
-              </Text>
-            )
-          }
-          bg="rgba(32, 0, 0, 0.5);"
+        <Skeleton
+          isLoaded={!tokenDetails.loading}
+          startColor="rgba(222, 0, 0, 0.5)"
+          endColor="black"
         >
-          <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-            {/*             41660 PTX
-             */}{' '}
-          </Text>
-        </DappItem>
-        <DappItem label="APY" content={'68,834%'} bg="rgba(32, 0, 0, 0.5);">
-          <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-            1.77% DAILY
-          </Text>
-        </DappItem>
-        <DappItem
-          label="YOUR BALANCE"
-          content={
-            pairs === null || address === undefined ? (
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
-                0
-              </Text>
-            ) : (
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
-                ${toFormattedValue(Number(Number(pairs[0].priceUsd) * balance))}
-              </Text>
-            )
-          }
-          bg="rgba(32, 0, 0, 0.5);"
+          <DappItem
+            label="PTX PRICE"
+            content={
+              pairs === null ? (
+                <Text
+                  fontWeight={700}
+                  fontSize={{ base: '24px', lg: '42px' }}
+                  lineHeight={'59px'}
+                  color="rgba(222, 0, 0, 1)"
+                >
+                  0
+                </Text>
+              ) : (
+                <Text
+                  fontWeight={700}
+                  fontSize={{ base: '24px', lg: '42px' }}
+                  lineHeight={'59px'}
+                  color="rgba(222, 0, 0, 1)"
+                >
+                  ${toFormattedValue(Number(pairs[0].priceUsd))}
+                </Text>
+              )
+            }
+            bg="rgba(32, 0, 0, 0.5);"
+          >
+            <Text fontWeight={700} fontSize="20px" color="transparent" lineHeight={'24px'}>
+              &nbsp;
+            </Text>
+          </DappItem>
+        </Skeleton>
+        <Skeleton
+          isLoaded={!tokenDetails.loading}
+          startColor="rgba(222, 0, 0, 0.5)"
+          endColor="black"
         >
-          <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-            {balance} PTX
-          </Text>
-        </DappItem>
+          <DappItem
+            label="APY"
+            content={
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
+                {toFormattedValue(
+                  ((1 + (tokenDetails.rebaseRate ?? 0) / 1e7) ** (48 * 365) - 1) * 100
+                )}
+                %
+              </Text>
+            }
+            bg="rgba(32, 0, 0, 0.5);"
+          >
+            <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
+              {(((1 + (tokenDetails.rebaseRate ?? 0) / 1e7) ** 48 - 1) * 100).toFixed(2)}% DAILY
+            </Text>
+          </DappItem>
+        </Skeleton>
+        <Skeleton
+          isLoaded={!tokenDetails.loading}
+          startColor="rgba(222, 0, 0, 0.5)"
+          endColor="black"
+        >
+          <DappItem
+            label="YOUR BALANCE"
+            content={
+              pairs === null || address === undefined ? (
+                <Text
+                  fontWeight={700}
+                  fontSize={{ base: '24px', lg: '42px' }}
+                  lineHeight={'59px'}
+                  color="rgba(222, 0, 0, 1)"
+                >
+                  0
+                </Text>
+              ) : (
+                <Text
+                  fontWeight={700}
+                  fontSize={{ base: '24px', lg: '42px' }}
+                  lineHeight={'59px'}
+                  color="rgba(222, 0, 0, 1)"
+                >
+                  ${toFormattedValue(Number(Number(pairs[0].priceUsd) * balance))}
+                </Text>
+              )
+            }
+            bg="rgba(32, 0, 0, 0.5);"
+          >
+            <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
+              {balance} PTX
+            </Text>
+          </DappItem>
+        </Skeleton>
       </Grid>
       <Grid
         templateColumns={{ base: '1fr', lg: 'repeat(2,1fr)' }}

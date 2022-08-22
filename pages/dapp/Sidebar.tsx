@@ -11,6 +11,7 @@ import {
   Collapse,
   IconButton,
   useDisclosure,
+  Box,
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Dispatch, SetStateAction, useState } from 'react';
@@ -41,20 +42,36 @@ export default function Sidebar({ selectedTab, setSelectedTab }: ISidebarProps) 
       pt={{ base: 0, '2xl': 0 }}
       gap={{ base: 8, '2xl': 0 }}
     >
-      <div style={{ width: '100%' }}>
+      <Stack
+        display={{ base: 'none', xl: 'flex' }}
+        justifyContent={'space-between'}
+        direction={{ base: 'column', xl: 'row', '2xl': 'column' }}
+        w="full"
+        alignItems={'start'}
+        spacing={4}
+        pt={4}
+      >
+        {tabKeys.map((val) => (
+          <SidebarItem
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            tab={tabs[val]}
+            key={val}
+          />
+        ))}
+      </Stack>
+      <Box style={{ width: '100%' }} display={{ xl: 'none' }} py={4}>
         <IconButton
           fontSize={'xl'}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={'Open Menu'}
-          display={{ xl: 'none' }}
           onClick={isOpen ? onClose : onOpen}
           variant="outline"
-        ></IconButton>
+        />
         <motion.div
           {...getDisclosureProps()}
           hidden={hidden}
           initial={false}
-          bgColor={'aqua'}
           onAnimationStart={() => setHidden(false)}
           onAnimationComplete={() => setHidden(!isOpen)}
           animate={{ width: isOpen ? '100%' : 0 }}
@@ -62,6 +79,8 @@ export default function Sidebar({ selectedTab, setSelectedTab }: ISidebarProps) 
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             position: 'relative',
+            borderBottom: '2px solid white',
+            padding: '16px 0px 16px 0px',
           }}
         >
           <Stack
@@ -107,35 +126,18 @@ export default function Sidebar({ selectedTab, setSelectedTab }: ISidebarProps) 
             </VStack>
           </Stack>
         </motion.div>
-      </div>
-      <Stack
-        display={{ base: 'none', xl: 'flex' }}
-        justifyContent={'space-between'}
-        direction={{ base: 'column', xl: 'row', '2xl': 'column' }}
-        w="full"
-        alignItems={'start'}
-        spacing={4}
-      >
-        {tabKeys.map((val) => (
-          <SidebarItem
-            selectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
-            tab={tabs[val]}
-            key={val}
-          />
-        ))}
-      </Stack>
+      </Box>
       <VStack display={{ base: 'none', xl: 'flex' }}>
         <Text fontWeight={'extrabold'}>LINKS</Text>
         <HStack>
           <Link>
-            <FaDiscord size="20px" />
+            <FaDiscord size="36px" />
           </Link>
           <Link>
-            <FaTwitter size="20px" />
+            <FaTwitter size="36px" />
           </Link>
           <Link>
-            <DexscreenerLogo w="15px" />
+            <DexscreenerLogo w="30px" />
           </Link>
         </HStack>
       </VStack>

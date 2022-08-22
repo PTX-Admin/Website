@@ -9,7 +9,7 @@ interface IDappItemProps {
 export default function DashboadItem({ label, content, children, bg }: IDappItemProps) {
   return (
     <VStack bg={bg} rounded="2xl" p={4}>
-      <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
+      <Text fontWeight={700} fontSize={{ base: '16px', lg: '20px' }} lineHeight={'24px'}>
         {label}
       </Text>
       {content}

@@ -12,7 +12,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
   const renderer: CountdownRendererFn = ({ minutes, seconds }: CountdownRenderProps) => {
     return (
       <>
-        <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+        <Text
+          fontWeight={700}
+          fontSize={{ base: '24px', lg: '42px' }}
+          lineHeight={'59px'}
+          color="rgba(222, 0, 0, 1)"
+        >
           {addLeadingZeroes(minutes, 2)}:{addLeadingZeroes(seconds, 2)}
         </Text>
       </>
@@ -29,9 +34,10 @@ export default function Dashboard({ pairs }: IPairsResponse) {
         w="full"
         rounded="xl"
         bg="rgba(32, 0, 0, 0.5);"
-        p={8}
+        p={{ base: 2, lg: 8 }}
         gap={6}
         rowGap={6}
+        textAlign="center"
       >
         <Skeleton
           isLoaded={!tokenDetails.loading}
@@ -44,7 +50,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
               pairs === null ? (
                 <Text
                   fontWeight={700}
-                  fontSize="42px"
+                  fontSize={{ base: '24px', lg: '42px' }}
                   lineHeight={'59px'}
                   color="rgba(222, 0, 0, 1)"
                 >
@@ -53,7 +59,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
               ) : (
                 <Text
                   fontWeight={700}
-                  fontSize="42px"
+                  fontSize={{ base: '24px', lg: '42px' }}
                   lineHeight={'59px'}
                   color="rgba(222, 0, 0, 1)"
                 >
@@ -74,7 +80,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
               pairs === null ? (
                 <Text
                   fontWeight={700}
-                  fontSize="42px"
+                  fontSize={{ base: '24px', lg: '42px' }}
                   lineHeight={'59px'}
                   color="rgba(222, 0, 0, 1)"
                 >
@@ -83,7 +89,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
               ) : (
                 <Text
                   fontWeight={700}
-                  fontSize="42px"
+                  fontSize={{ base: '24px', lg: '42px' }}
                   lineHeight={'59px'}
                   color="rgba(222, 0, 0, 1)"
                 >
@@ -102,7 +108,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="CIRCULATING SUPPLY (PTX)"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 {toFormattedValueNoDeciamls(tokenDetails.circulatingSupply ?? 0)}
               </Text>
             }
@@ -117,7 +128,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="BACKED LIQUIDITY"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 100%
               </Text>
             }
@@ -142,7 +158,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="AVERAGE PTX HOLDING"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 {toFormattedValueNoDeciamls(
                   (tokenDetails.circulatingSupply ?? 0) / (tokenDetails.holders ?? 0)
                 )}
@@ -168,7 +189,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="PTX BURNED"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 $
                 {toFormattedValue(
                   (tokenDetails.burned ?? 0) * (pairs === null ? 0 : Number(pairs[0].priceUsd) ?? 0)
@@ -190,14 +216,19 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="TREASURY"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 ${toFormattedValue(500000)}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'} color="transparent">
-              this is hidden
+              &nbsp;
             </Text>
           </DappItem>
         </Skeleton>
@@ -209,14 +240,19 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="LIQUIDITY"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 ${toFormattedValue(pairs === null ? 0 : pairs[0].liquidity?.usd ?? 0)}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'} color="transparent">
-              this is hidden
+              &nbsp;
             </Text>
           </DappItem>
         </Skeleton>
@@ -228,14 +264,19 @@ export default function Dashboard({ pairs }: IPairsResponse) {
           <DappItem
             label="INVESTMENT FUNDS"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 ${toFormattedValue(500000)}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'} color="transparent">
-              this is hidden
+              &nbsp;
             </Text>
           </DappItem>
         </Skeleton>

@@ -12,7 +12,12 @@ export default function Vault({ pairs }: IPairsResponse) {
   const renderer: CountdownRendererFn = ({ minutes, seconds }: CountdownRenderProps) => {
     return (
       <>
-        <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+        <Text
+          fontWeight={700}
+          fontSize={{ base: '24px', lg: '42px' }}
+          lineHeight={'59px'}
+          color="rgba(222, 0, 0, 1)"
+        >
           {addLeadingZeroes(minutes, 2)}:{addLeadingZeroes(seconds, 2)}
         </Text>
       </>
@@ -52,7 +57,12 @@ export default function Vault({ pairs }: IPairsResponse) {
           <DappItem
             label="APY"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 {toFormattedValue(3614.49)}%
               </Text>
             }
@@ -79,7 +89,12 @@ export default function Vault({ pairs }: IPairsResponse) {
           <DappItem
             label="YOUR BALANCE"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 $
                 {toFormattedValue(
                   (tokenDetails.balance ?? 0) * (pairs === null ? 0 : Number(pairs[0].priceUsd))
@@ -101,7 +116,12 @@ export default function Vault({ pairs }: IPairsResponse) {
           <DappItem
             label="DAILY EARNING"
             content={
-              <Text fontWeight={700} fontSize="42px" lineHeight={'59px'} color="rgba(222, 0, 0, 1)">
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
                 $
                 {toFormattedValue(
                   (tokenDetails.balance ?? 0) *
@@ -130,7 +150,7 @@ export default function Vault({ pairs }: IPairsResponse) {
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'} color="transparent">
-              this is hidden
+              &nbsp;
             </Text>
           </DappItem>
         </Skeleton>
