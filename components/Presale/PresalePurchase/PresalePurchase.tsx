@@ -34,7 +34,7 @@ export default function PresalePurchase() {
   const { address } = useAccount();
   const {} = useBalance({
     addressOrName: address,
-    token: BUSDAddress,
+    token: presaleContractConfig.addressOrName,
     watch: true,
     onSuccess(data) {
       setBalance(Number(data.formatted));
@@ -74,23 +74,22 @@ export default function PresalePurchase() {
     },
   });
 
-  // approve
-  const { config: approveConfig } = usePrepareContractWrite({
-    addressOrName: BUSDAddress,
-    contractInterface: erc20ABI,
-    functionName: 'approve',
-    args: [presaleContractConfig.addressOrName, ethers.constants.MaxUint256],
+  // redeem
+  const { config: redeemConfig } = usePrepareContractWrite({
+    ...presaleContractConfig,
+    functionName: 'redeem',
+    args: [balance],
   });
-  const { isLoading: approveIsLoading, writeAsync: approveWrite } = useContractWrite({
-    ...approveConfig,
+  const { isLoading: redeemIsLoading, writeAsync: redeemWrite } = useContractWrite({
+    ...redeemConfig,
     onError(err) {
       toast.error(err.message);
     },
     onSuccess(data) {
       toast.promise(data.wait(1), {
-        pending: `💰 Approving contract to spend $BUSD.`,
-        success: `💸 Contract approved.`,
-        error: `💥 Error approving contract.`,
+        pending: `💰 Redeeming your $PTX.`,
+        success: `💸 $PTX RREDEEMED.`,
+        error: `💥 Error redeeming your presale tokens.`,
       });
     },
   });
@@ -106,129 +105,21 @@ export default function PresalePurchase() {
         w="full"
         justifyContent="center"
       >
-        <VStack>
-          <Input
-            w="full"
-            variant={'flushed'}
-            textAlign="end"
-            placeholder="ENTER AMOUNT"
-            borderColor="red"
-            {...input}
-            _placeholder={{
-              color: 'inherit',
-              opacity: 0.9,
-              fontWeight: 'bold',
-              textAlign: 'center',
-            }}
-          />
-          <HStack fontSize={'xs'} color="gray.300" w="full" justifyContent={'space-between'}>
-            <Text
-              cursor="pointer"
-              _active={{ textDecoration: 'underline' }}
-              _focus={{ textDecoration: 'underline' }}
-              _hover={{ textDecoration: 'underline' }}
-              onClick={() => setToMint(balance * 0.25)}
-            >
-              25%
-            </Text>
-            <Text
-              cursor="pointer"
-              _active={{ textDecoration: 'underline' }}
-              _focus={{ textDecoration: 'underline' }}
-              _hover={{ textDecoration: 'underline' }}
-              onClick={() => setToMint(balance * 0.5)}
-            >
-              50%
-            </Text>
-            <Text
-              cursor="pointer"
-              _active={{ textDecoration: 'underline' }}
-              _focus={{ textDecoration: 'underline' }}
-              _hover={{ textDecoration: 'underline' }}
-              onClick={() => setToMint(balance * 0.75)}
-            >
-              75%
-            </Text>
-            <Text
-              cursor="pointer"
-              _active={{ textDecoration: 'underline' }}
-              _focus={{ textDecoration: 'underline' }}
-              _hover={{ textDecoration: 'underline' }}
-              onClick={() => setToMint(balance)}
-            >
-              100%
-            </Text>
-          </HStack>
-        </VStack>
         {/* <Divider orientation="vertical" minH="32px" borderLeftColor={'black'} opacity={1} /> */}
         {Presale.loading ? (
           <Spinner size="md" color="black" />
         ) : (
           <>
-            {!ended ? (
-              <>
-                {Presale.allowance && Presale.allowance > balance ? (
-                  <>
-                    {toMint === undefined ? (
-                      <NetworkButton disabled>ENTER AN AMOUNNT</NetworkButton>
-                    ) : (
-                      <>
-                        {toMint > balance ? (
-                          <>
-                            <NetworkButton px={8} disabled>
-                              NOT ENOUGH $BUSD
-                            </NetworkButton>
-                          </>
-                        ) : (
-                          <>
-                            {Presale.userInvested &&
-                            Presale.currentEpoch &&
-                            Presale.userInvested >=
-                              (Presale.userCap ?? 0) *
-                                ((Presale?.currentEpoch?.price ?? 0) / 100) &&
-                            Presale.currentEpoch.id !== 5 ? (
-                              <NetworkButton px={8} disabled>
-                                CAP REACHED
-                              </NetworkButton>
-                            ) : (
-                              <>
-                                {investIsLoading ? (
-                                  <NetworkButton isLoading loadingText="Buying..." px={8}>
-                                    BUY TOKEN
-                                  </NetworkButton>
-                                ) : (
-                                  <NetworkButton
-                                    px={8}
-                                    onClick={() => investWrite && investWrite()}
-                                  >
-                                    BUY TOKEN
-                                  </NetworkButton>
-                                )}
-                              </>
-                            )}
-                          </>
-                        )}
-                      </>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {approveIsLoading ? (
-                      <NetworkButton isLoading loadingText="Approving..." px={8}>
-                        APPROVE
-                      </NetworkButton>
-                    ) : (
-                      <NetworkButton px={8} onClick={() => approveWrite && approveWrite()}>
-                        APPROVE
-                      </NetworkButton>
-                    )}
-                  </>
-                )}
-              </>
+            {balance > 0 ? (
+              <NetworkButton
+                onClick={() => redeemWrite && redeemWrite()}
+                isLoading={redeemIsLoading}
+                loadingText="Redeeeming..."
+              >
+                REDEEM
+              </NetworkButton>
             ) : (
-              <>
-                <NetworkButton disabled>BUY TOKEN</NetworkButton>
-              </>
+              <NetworkButton disabled>REDEEM</NetworkButton>
             )}
           </>
         )}
