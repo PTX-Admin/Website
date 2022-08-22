@@ -174,6 +174,7 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
         nextRebase: 60 * 30 + Number(data[2]),
         rebaseRate: Number(data[3]),
         balance: format(data[4], 5),
+        apy: ((1 + (Number(data[3]) ?? 0) / 1e7) ** (48 * 365) - 1) * 100,
       };
       console.log('💰', obj);
       getHolders(obj).then((res) => setTokenDetails(res));

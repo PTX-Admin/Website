@@ -14,7 +14,7 @@ import {
   Image,
   Skeleton,
 } from '@chakra-ui/react';
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { useAccount, useBalance } from 'wagmi';
 import logo from '../../Assets/landing/logo.png';
 import { presaleContractConfig, ptxContractConfig } from '../../config/constants';
@@ -26,8 +26,8 @@ import DappItem from './DappItem';
 
 export default function Calculator({ pairs }: IPairsResponse) {
   const [getPTXAmount, setPTXAmount] = useState<number>(0);
-  const [getPTXFuturePrice, setPTXFuturePrice] = useState<number>(0);
-  const [getPTXPurchasedPrice, setPTXPurchasedPrice] = useState(0);
+  const [getPTXFuturePrice, setPTXFuturePrice] = useState<string>('0');
+  const [getPTXPurchasedPrice, setPTXPurchasedPrice] = useState('0');
   const [getAPY, setAPY] = useState(0);
 
   const { tokenDetails } = useContext(ProtocolXContext);
@@ -44,6 +44,11 @@ export default function Calculator({ pairs }: IPairsResponse) {
       setBalance(Number(data.formatted));
     },
   });
+
+  const currentAPY = useMemo(() => {
+    return ((1 + (tokenDetails.rebaseRate ?? 0 ?? 0) / 1e7) ** (48 * sliderValue) - 1) * 100;
+  }, [sliderValue, tokenDetails.rebaseRate]);
+
   return (
     <VStack
       fontWeight={700}
@@ -114,10 +119,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
                 lineHeight={'59px'}
                 color="rgba(222, 0, 0, 1)"
               >
-                {toFormattedValue(
-                  ((1 + (tokenDetails.rebaseRate ?? 0) / 1e7) ** (48 * 365) - 1) * 100
-                )}
-                %
+                {toFormattedValue(tokenDetails.apy ?? 0)}%
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
@@ -235,6 +237,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
               _focus={{ textDecoration: 'none' }}
               _hover={{ textDecoration: 'none' }}
               variant={'ghost'}
+              onClick={() => setAPY(tokenDetails.apy ?? 0)}
             >
               Current
             </Button>
@@ -251,7 +254,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
             <NumberInput
               value={getPTXPurchasedPrice}
               onChange={(e) => {
-                setPTXPurchasedPrice(Number(e));
+                setPTXPurchasedPrice(e);
               }}
               w={'full'}
               rounded={'2xl'}
@@ -266,8 +269,8 @@ export default function Calculator({ pairs }: IPairsResponse) {
             <Button
               onClick={() => {
                 pairs === null
-                  ? setPTXPurchasedPrice(0)
-                  : setPTXPurchasedPrice(Number(toFormattedValue(Number(pairs[0].priceUsd))));
+                  ? setPTXPurchasedPrice('0')
+                  : setPTXPurchasedPrice(toFormattedValue(Number(pairs[0].priceUsd)));
               }}
               _active={{ textDecoration: 'none' }}
               _focus={{ textDecoration: 'none' }}
@@ -289,7 +292,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
             <NumberInput
               value={getPTXFuturePrice}
               onChange={(e) => {
-                setPTXFuturePrice(Number(e));
+                setPTXFuturePrice(e);
               }}
               w={'full'}
               rounded={'2xl'}
@@ -304,8 +307,8 @@ export default function Calculator({ pairs }: IPairsResponse) {
             <Button
               onClick={() => {
                 pairs === null
-                  ? setPTXFuturePrice(0)
-                  : setPTXFuturePrice(Number(toFormattedValue(Number(pairs[0].priceUsd))));
+                  ? setPTXFuturePrice('0')
+                  : setPTXFuturePrice(toFormattedValue(Number(pairs[0].priceUsd)));
               }}
               _active={{ textDecoration: 'none' }}
               _focus={{ textDecoration: 'none' }}
@@ -342,7 +345,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
         </Box>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>Initial Investment</Text>
-          <Text>${getPTXAmount * getPTXPurchasedPrice}</Text>
+          <Text>${toFormattedValue(getPTXAmount * Number(getPTXPurchasedPrice))}</Text>
         </HStack>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>Current Worth</Text>
@@ -350,16 +353,16 @@ export default function Calculator({ pairs }: IPairsResponse) {
             $
             {pairs === null
               ? 0
-              : getPTXAmount * Number(toFormattedValue(Number(pairs[0].priceUsd)))}
+              : toFormattedValue(getPTXAmount * Number(getPTXPurchasedPrice) * currentAPY)}
           </Text>
         </HStack>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>PTX Rewards Amount</Text>
-          <Text>0PTX</Text>
+          <Text>{toFormattedValue(getPTXAmount * currentAPY - getPTXAmount)} $PTX</Text>
         </HStack>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>Potential return</Text>
-          <Text>$0</Text>
+          <Text>${toFormattedValue(getPTXAmount * currentAPY * Number(getPTXFuturePrice))}</Text>
         </HStack>
       </VStack>
     </VStack>

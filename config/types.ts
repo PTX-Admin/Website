@@ -65,6 +65,7 @@ export interface ITokenDetails {
   nextRebase?: number;
   rebaseRate?: number;
   balance?: number;
+  apy?: number;
 }
 
 // fetch interfaces

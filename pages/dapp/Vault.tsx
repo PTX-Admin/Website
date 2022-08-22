@@ -63,7 +63,7 @@ export default function Vault({ pairs }: IPairsResponse) {
                 lineHeight={'59px'}
                 color="rgba(222, 0, 0, 1)"
               >
-                {toFormattedValue(3614.49)}%
+                {toFormattedValue(tokenDetails.apy ?? 0)}%
               </Text>
             }
           >
