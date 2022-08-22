@@ -153,8 +153,8 @@ export default function ConnectWalletButton() {
                         chainId={250}
                       />
                       <TokenTracker
-                        tokenLogo="https://assets.coingecko.com/coins/images/9576/small/BUSD.png?1568947766"
-                        token={BUSDAddress}
+                        tokenLogo={coinLogoBase64}
+                        token={'0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455'}
                         address={address}
                         watch={true}
                         cacheTime={5000}
