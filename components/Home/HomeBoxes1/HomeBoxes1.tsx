@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './HomeBoxes1.module.css';
 import { Image } from '@chakra-ui/react';
-import bulb from '../../Assets/home/boxes/bulb.png';
-import circle1 from '../../Assets/home/boxes/circle1.svg';
-import circle2 from '../../Assets/home/boxes/circle2.svg';
+import bulb from '../../../Assets/home/boxes/bulb.png';
+import circle1 from '../../../Assets/home/boxes/circle1.svg';
+import circle2 from '../../../Assets/home/boxes/circle2.svg';
 
 export default function HomeBoxes() {
   return (

@@ -2,12 +2,12 @@ import { Box, Flex, HStack, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import assure from '../../Assets/home/partners/assure.png';
-import ego from '../../Assets/home/partners/ego.png';
-import mdb from '../../Assets/home/partners/mdb.png';
-import newshari from '../../Assets/home/partners/newshari.png';
-import silver from '../../Assets/home/partners/silver.png';
-import bg from '../../Assets/home/partners/partnersbg.jpg';
+import assure from '../../../Assets/home/partners/assure.png';
+import ego from '../../../Assets/home/partners/ego.png';
+import mdb from '../../../Assets/home/partners/mdb.png';
+import newshari from '../../../Assets/home/partners/newshari.png';
+import silver from '../../../Assets/home/partners/silver.png';
+import bg from '../../../Assets/home/partners/partnersbg.jpg';
 
 export default function SimpleSlider() {
   return (

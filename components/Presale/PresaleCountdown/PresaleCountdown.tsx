@@ -1,9 +1,8 @@
 import { Heading, HStack, Text, VStack } from '@chakra-ui/react';
-import moment from 'moment';
 import { useContext, useMemo } from 'react';
 import Countdown, { CountdownRendererFn, CountdownRenderProps } from 'react-countdown';
-import { ProtocolXContext } from '../../context/ProtocolXContext';
-import useWeb3Formatter from '../../hooks/useWeb3Formatter';
+import { ProtocolXContext } from '../../../context/ProtocolXContext';
+import useWeb3Formatter from '../../../hooks/useWeb3Formatter';
 
 export default function PreasleCountdown() {
   const { Presale } = useContext(ProtocolXContext);

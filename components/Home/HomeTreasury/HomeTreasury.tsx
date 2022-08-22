@@ -1,6 +1,6 @@
 import { Image } from '@chakra-ui/react';
 import styles from './HomeTreasury.module.css';
-import treasure from '../../Assets/home/treasury/treasure.svg';
+import treasure from '../../../Assets/home/treasury/treasure.svg';
 
 export default function HomeTreasury() {
   return (

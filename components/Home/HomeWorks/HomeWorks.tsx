@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './HomeWorks.module.css';
 import { Image } from '@chakra-ui/react';
-import cog from '../../Assets/home/works/cog.png';
-import work from '../../Assets/home/works/work-icon.png';
+import cog from '../../../Assets/home/works/cog.png';
+import work from '../../../Assets/home/works/work-icon.png';
 
 export default function HomeContent() {
   return (
