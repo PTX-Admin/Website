@@ -204,7 +204,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-              {tokenDetails.burned ?? 0} PTX
+              {toFormattedValue(tokenDetails.burned ?? 0)} PTX
             </Text>
           </DappItem>
         </Skeleton>
