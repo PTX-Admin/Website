@@ -78,7 +78,7 @@ export default function PresalePurchase() {
   const { config: redeemConfig } = usePrepareContractWrite({
     ...presaleContractConfig,
     functionName: 'redeem',
-    args: [balance],
+    args: [ethers.utils.parseEther(balance.toString())],
   });
   const { isLoading: redeemIsLoading, writeAsync: redeemWrite } = useContractWrite({
     ...redeemConfig,
