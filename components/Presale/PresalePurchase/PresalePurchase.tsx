@@ -79,7 +79,7 @@ export default function PresalePurchase() {
   // redeem
   const {
     config: redeemConfig,
-    isError,
+    isError: redeemIsError,
     error,
   } = usePrepareContractWrite({
     ...presaleContractConfig,
@@ -125,11 +125,11 @@ export default function PresalePurchase() {
                 REDEEM
               </NetworkButton>
             ) : (
-              <NetworkButton disabled={isError}>REDEEM</NetworkButton>
+              <NetworkButton isDisabled={redeemIsError}>REDEEM</NetworkButton>
             )}
           </>
         )}
-        {isError && (
+        {redeemIsError && (
           <Text color={'red'} fontSize={{ base: 'xs', md: 'md' }}>
             Error: {error?.message}
           </Text>
