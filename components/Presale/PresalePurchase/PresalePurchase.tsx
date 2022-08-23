@@ -30,6 +30,7 @@ export default function PresalePurchase() {
     return moment(Presale.endsAt).isBefore(Date.now() / 1000);
   }, [Presale.endsAt]);
 
+  const [toClaim, setToClaim] = useState('0');
   const [balance, setBalance] = useState<number>(0);
   const { address } = useAccount();
   const {} = useBalance({
@@ -37,6 +38,7 @@ export default function PresalePurchase() {
     token: presaleContractConfig.addressOrName,
     watch: true,
     onSuccess(data) {
+      setToClaim(data.formatted.toString());
       setBalance(Number(data.formatted));
     },
   });
@@ -78,7 +80,7 @@ export default function PresalePurchase() {
   const { config: redeemConfig } = usePrepareContractWrite({
     ...presaleContractConfig,
     functionName: 'redeem',
-    args: [ethers.utils.parseEther(balance.toString())],
+    args: [toClaim],
   });
   const { isLoading: redeemIsLoading, writeAsync: redeemWrite } = useContractWrite({
     ...redeemConfig,
@@ -115,8 +117,9 @@ export default function PresalePurchase() {
                 onClick={() => redeemWrite && redeemWrite()}
                 isLoading={redeemIsLoading}
                 loadingText="Redeeeming..."
+                disabled
               >
-                REDEEM
+                {toClaim} REDEEM
               </NetworkButton>
             ) : (
               <NetworkButton>REDEEM</NetworkButton>
