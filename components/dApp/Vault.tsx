@@ -25,7 +25,7 @@ export default function Vault({ pairs }: IPairsResponse) {
   };
 
   return (
-    <VStack w="full" overflowY={'auto'} h="744px" overflow={'auto'} data-aos="zoom-out">
+    <VStack w="full" data-aos="zoom-out">
       <Text fontWeight={700} fontSize="2xl">
         THE VAULT
       </Text>
@@ -138,16 +138,14 @@ export default function Vault({ pairs }: IPairsResponse) {
                 {toFormattedValue(
                   (tokenDetails.balance ?? 0) *
                     (pairs === null ? 0 : Number(pairs[0].priceUsd)) *
-                    1.77 -
-                    (tokenDetails.balance ?? 0) * (pairs === null ? 0 : Number(pairs[0].priceUsd))
+                    0.0177
                 )}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
           >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-              {toFormattedValue((tokenDetails.balance ?? 0) * 1.77 - (tokenDetails.balance ?? 0))}{' '}
-              PTX
+              {toFormattedValue((tokenDetails.balance ?? 0) * 0.0177)} PTX
             </Text>
           </DappItem>
         </Skeleton>
