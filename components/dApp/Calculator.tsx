@@ -51,7 +51,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
   const [hasDisplayed, setHasDisplayed] = useState(false);
 
   const currentAPY = useMemo(() => {
-    return ((1 + (tokenDetails.rebaseRate ?? 0 ?? 0) / 1e7) ** (48 * sliderValue) - 1) * 100;
+    return (1 + (tokenDetails.rebaseRate ?? 0 ?? 0) / 1e7) ** (48 * sliderValue) - 1;
   }, [sliderValue, tokenDetails.rebaseRate]);
 
   async function displayLambo() {
@@ -386,7 +386,7 @@ export default function Calculator({ pairs }: IPairsResponse) {
         </HStack>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>PTX Rewards Amount</Text>
-          <Text>{toFormattedValue(getPTXAmount * currentAPY - getPTXAmount)} $PTX</Text>
+          <Text>{toFormattedValue(getPTXAmount * currentAPY)} $PTX</Text>
         </HStack>
         <HStack justifyContent={'space-between'} w={'full'}>
           <Text>Potential return</Text>
