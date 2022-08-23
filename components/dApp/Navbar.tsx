@@ -41,7 +41,7 @@ const links: ILink[] = [
   },
   {
     label: 'CHART',
-    path: 'https://dexscreener.com/fantom/0x5c253890b145ba1d3fc3a71699d8431210a879c0000200000000000000000503-0x04068da6c83afcfa0e13ba15a6696662335d5b75-0x08d70a47d3f28bbf755ae050a783844b40ae5761',
+    path: 'https://dexscreener.com/bsc/0x4f421429e87196df186dc35ec4d35467214d6aa7',
     isExternal: true,
   },
   {
