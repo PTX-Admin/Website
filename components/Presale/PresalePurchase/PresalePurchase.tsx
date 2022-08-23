@@ -38,7 +38,7 @@ export default function PresalePurchase() {
     token: presaleContractConfig.addressOrName,
     watch: true,
     onSuccess(data) {
-      setToClaim(data.formatted.toString());
+      setToClaim(data.value.toString());
       setBalance(Number(data.formatted));
     },
   });
