@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Button, Image } from '@chakra-ui/react';
+import { Button, Image, Link } from '@chakra-ui/react';
 import styles from './HomeHeader.module.css';
 import { useRouter } from 'next/router';
 import shield from '../../../Assets/home/header/shield.png';
@@ -21,7 +21,9 @@ function Hero() {
             growing ecosystem that all feeds into each other.
           </p>
           <Button
-            onClick={() => router.push('/', undefined, { shallow: true })}
+            as={Link}
+            href="https://pancakeswap.finance/swap?outputCurrency=0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455"
+            isExternal
             className={styles.ctaBtn}
           >
             Buy $PTX

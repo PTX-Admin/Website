@@ -5,11 +5,6 @@ export const triangleOptions: any = {
     },
   },
   fpsLimit: 60,
-  interactivity: {
-    events: {
-      resize: true,
-    },
-  },
   particles: {
     color: {
       value: '#DE0000',
@@ -21,16 +16,12 @@ export const triangleOptions: any = {
       opacity: 0.5,
       width: 1,
     },
-    collisions: {
-      enable: true,
-    },
     move: {
       direction: 'none',
       enable: true,
       outModes: {
         default: 'bounce',
       },
-      random: true,
       speed: 5,
       straight: false,
     },
@@ -51,5 +42,4 @@ export const triangleOptions: any = {
       value: { min: 1, max: 5 },
     },
   },
-  detectRetina: true,
 };

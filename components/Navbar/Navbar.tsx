@@ -13,9 +13,8 @@ import {
   Collapse,
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import ConnectWalletButton from '../ConnectWalletButton';
 import { useRouter } from 'next/router';
-// import PDF from '../../public/PTX_WP.pdf';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface ILink {
   label: string;
@@ -91,7 +90,12 @@ export default function Nav() {
               <NavLink link={val} key={val.label} />
             ))}
           </HStack>
-          <ConnectWalletButton />
+          <ConnectButton
+            accountStatus={'address'}
+            showBalance={false}
+            chainStatus={'icon'}
+            label="Connect"
+          />
           {/* <HamburgerIcon display={{ base: 'block', xl: 'none' }} /> */}
           <IconButton
             size={'md'}
