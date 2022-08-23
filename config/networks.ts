@@ -26,7 +26,7 @@ export const bscChain: Chain = {
 export const allChains: Chain[] = [...defaultChains, bscChain];
 
 export const networkDetails: INetworkDetails = {
-  // 250: {
+  // 56: {
   //   rpcUrl: 'https://rpc.ankr.com/fantom	',
 
   //   chainProviders: new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/fantom	'),
@@ -63,7 +63,7 @@ export const networkDetails: INetworkDetails = {
   // },
   56: {
     rpcUrl: 'https://bsc-dataseed.binance.org',
-    chainProviders: new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org'),
+    chainProviders: new ethers.providers.JsonRpcBatchProvider('https://bsc-dataseed.binance.org'),
     blockExplorerURL: 'https://www.bscscan.com/',
     blockExplorerName: 'BscScan',
     prefix: 'bsc',
@@ -72,7 +72,7 @@ export const networkDetails: INetworkDetails = {
   },
   97: {
     rpcUrl: 'https://data-seed-prebsc-1-s3.binance.org:8545',
-    chainProviders: new ethers.providers.JsonRpcProvider(
+    chainProviders: new ethers.providers.JsonRpcBatchProvider(
       'https://data-seed-prebsc-1-s3.binance.org:8545'
     ),
     blockExplorerURL: 'https://www.bscscan.com/',

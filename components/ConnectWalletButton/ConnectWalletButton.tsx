@@ -150,7 +150,7 @@ export default function ConnectWalletButton() {
                         address={address}
                         watch={true}
                         cacheTime={5000}
-                        chainId={250}
+                        chainId={56}
                       />
                       <TokenTracker
                         tokenLogo={coinLogoBase64}
@@ -158,7 +158,7 @@ export default function ConnectWalletButton() {
                         address={address}
                         watch={true}
                         cacheTime={5000}
-                        chainId={250}
+                        chainId={56}
                       />
                     </>
                   ) : (
