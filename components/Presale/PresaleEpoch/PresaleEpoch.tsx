@@ -38,15 +38,15 @@ export default function PresaleEpoch() {
           gap={6}
           // borderRight={{ base: '', xl: `1px solid red` }}
           // borderBottom={{ base: `1px solid red`, xl: '0px solid' }}
-          p={4}
+          p={2}
           w="full"
           justifyItems={'center'}
           alignItems="center"
-          templateColumns={'1fr 5% 1fr'}
+          templateColumns={'1fr 1fr'}
           h="max-content"
         >
           <Text>YOUR INVESTMENT</Text>
-          <Divider orientation="vertical" borderLeftColor={'red'} opacity={1} />
+
           <VStack>
             {Presale.loading ? (
               <Spinner size="md" />
@@ -54,7 +54,9 @@ export default function PresaleEpoch() {
               <>
                 <Text>{toFormattedValueNoDeciamls(Presale.userInvested ?? 0)} $BUSD</Text>
                 <Divider w="50%" borderBottomColor="red" />
-                <Text fontSize={'xs'}>{toFormattedValueNoDeciamls(balance)} $pPTX</Text>
+                <Text fontSize={'xs'} textAlign="center">
+                  {toFormattedValueNoDeciamls(balance)} $pPTX
+                </Text>
               </>
             )}
           </VStack>

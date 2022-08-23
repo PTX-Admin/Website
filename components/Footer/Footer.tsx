@@ -131,6 +131,7 @@ export default function Footer() {
               Dex
             </Button>
             <Button
+              fontSize={{ base: 'xs', sm: 'md' }}
               disabled
               px={0}
               border={0}

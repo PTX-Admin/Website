@@ -83,7 +83,7 @@ export default function ConnectWalletButton() {
         options: {
           address: address,
           symbol: symbol,
-          decimals: 18,
+          decimals: 5,
           image: coinLogoBase64,
         },
       },

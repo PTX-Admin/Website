@@ -77,7 +77,11 @@ export default function PresalePurchase() {
   });
 
   // redeem
-  const { config: redeemConfig } = usePrepareContractWrite({
+  const {
+    config: redeemConfig,
+    isError,
+    error,
+  } = usePrepareContractWrite({
     ...presaleContractConfig,
     functionName: 'redeem',
     args: [toClaim],
@@ -100,7 +104,7 @@ export default function PresalePurchase() {
     <>
       <Flex
         gap={4}
-        direction={{ base: 'column', lg: 'row' }}
+        direction={'column'}
         rounded="xl"
         h="fit-content"
         alignItems={'center'}
@@ -117,14 +121,18 @@ export default function PresalePurchase() {
                 onClick={() => redeemWrite && redeemWrite()}
                 isLoading={redeemIsLoading}
                 loadingText="Redeeeming..."
-                disabled
               >
-                {toClaim} REDEEM
+                REDEEM
               </NetworkButton>
             ) : (
-              <NetworkButton>REDEEM</NetworkButton>
+              <NetworkButton disabled={isError}>REDEEM</NetworkButton>
             )}
           </>
+        )}
+        {isError && (
+          <Text color={'red'} fontSize={{ base: 'xs', md: 'md' }}>
+            Error: {error?.message}
+          </Text>
         )}
       </Flex>
     </>
