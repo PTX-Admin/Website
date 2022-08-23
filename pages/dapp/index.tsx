@@ -73,7 +73,6 @@ const Home: NextPage = ({ pair }: any) => {
       >
         <Navbar />
         <Grid
-          h="820px"
           display={{ base: 'none', '2xl': 'grid' }}
           w={{ base: '95%', md: '80%' }}
           mx={{ base: '2.5%', md: '10%' }}

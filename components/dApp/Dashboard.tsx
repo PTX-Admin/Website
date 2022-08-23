@@ -25,7 +25,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
   };
 
   return (
-    <VStack w="full" overflowY={'auto'} data-aos="zoom-out">
+    <VStack w="full" data-aos="zoom-out">
       <Text fontWeight={700} fontSize="2xl">
         DASHBOARD
       </Text>
