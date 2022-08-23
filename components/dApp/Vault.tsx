@@ -43,9 +43,21 @@ export default function Vault({ pairs }: IPairsResponse) {
           startColor="rgba(222, 0, 0, 0.5)"
           endColor="black"
         >
-          <DappItem label="TOTAL EARNED" content={'$ 250.00'}>
+          <DappItem
+            label="TOTAL EARNED"
+            content={
+              <Text
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '42px' }}
+                lineHeight={'59px'}
+                color="rgba(222, 0, 0, 1)"
+              >
+                Soon<sup>tm</sup>
+              </Text>
+            }
+          >
             <Text fontWeight={700} fontSize="20px" lineHeight={'24px'}>
-              4166 PTX
+              Soon<sup>tm</sup>
             </Text>
           </DappItem>
         </Skeleton>

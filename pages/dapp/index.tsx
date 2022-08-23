@@ -40,7 +40,7 @@ export const tabs: ITabs = {
 
 export const getServerSideProps = async () => {
   const pairReq = await fetch(
-    'https://api.dexscreener.io/latest/dex/pairs/fantom/0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c'
+    'https://api.dexscreener.io/latest/dex/pairs/bsc/0x4f421429e87196df186dc35ec4d35467214d6aa7'
   );
   const pairRes = (await pairReq.json()) as IPairsResponse;
   return {

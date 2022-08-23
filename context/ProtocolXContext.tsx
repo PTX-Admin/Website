@@ -160,7 +160,12 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
       {
         ...ptxContractConfig,
         functionName: 'balanceOf',
-        args: [address],
+        args: [address ?? ethers.constants.AddressZero],
+      },
+      {
+        ...ptxContractConfig,
+        functionName: 'balanceOf',
+        args: ['0xAA83EA37c8Cf6FC1c4847102efb23d865e722457'],
       },
     ],
     allowFailure: true,
@@ -175,6 +180,7 @@ export function ProtocolXProvider({ children }: { children: ReactNode }) {
         rebaseRate: Number(data[3]),
         balance: format(data[4], 5),
         apy: ((1 + (Number(data[3]) ?? 0) / 1e7) ** (48 * 365) - 1) * 100,
+        treasuryBalance: format(data[5], 5),
       };
       console.log('💰', obj);
       getHolders(obj).then((res) => setTokenDetails(res));

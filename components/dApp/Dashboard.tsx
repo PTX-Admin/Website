@@ -222,7 +222,12 @@ export default function Dashboard({ pairs }: IPairsResponse) {
                 lineHeight={'59px'}
                 color="rgba(222, 0, 0, 1)"
               >
-                ${toFormattedValue(500000)}
+                $
+                {toFormattedValue(
+                  75000 +
+                    (tokenDetails.treasuryBalance ?? 0) *
+                      (pairs === null ? 0 : Number(pairs[0].priceUsd) ?? 0)
+                )}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"
@@ -270,7 +275,7 @@ export default function Dashboard({ pairs }: IPairsResponse) {
                 lineHeight={'59px'}
                 color="rgba(222, 0, 0, 1)"
               >
-                ${toFormattedValue(500000)}
+                ${toFormattedValue(200000)}
               </Text>
             }
             bg="rgba(32, 0, 0, 0.5);"

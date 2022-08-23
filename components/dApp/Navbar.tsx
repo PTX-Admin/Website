@@ -31,8 +31,8 @@ interface ILink {
 const links: ILink[] = [
   {
     label: 'WHITEPAPER',
-    path: '/',
-    isExternal: true,
+    path: '/PTX_WP.pdf',
+    isExternal: false,
   },
   {
     label: 'ABOUT US',
@@ -46,7 +46,7 @@ const links: ILink[] = [
   },
   {
     label: 'BUY $PTX',
-    path: 'https://beets.fi/#/trade/0x04068da6c83afcfa0e13ba15a6696662335d5b75/0x08d70A47D3f28BbF755ae050a783844b40ae5761',
+    path: 'https://pancakeswap.finance/swap?outputCurrency=0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455',
     isExternal: true,
   },
 ];
