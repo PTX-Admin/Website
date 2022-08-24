@@ -65,7 +65,7 @@ const Home: NextPage = () => {
         <HStack
           w={{ base: '90%', md: '50%', xl: '25%' }}
           justifyContent="space-between"
-          pb={8}
+          pb={16}
           fontSize={{ base: 20, md: 26 }}
           fontWeight={700}
         >

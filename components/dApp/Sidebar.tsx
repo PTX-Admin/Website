@@ -130,13 +130,16 @@ export default function Sidebar({ selectedTab, setSelectedTab }: ISidebarProps) 
       <VStack display={{ base: 'none', xl: 'flex' }}>
         <Text fontWeight={'extrabold'}>LINKS</Text>
         <HStack>
-          <Link>
+          <Link href="https://discord.gg/protocolx" isExternal>
             <FaDiscord size="36px" />
           </Link>
-          <Link>
+          <Link href="https://twitter.com/protocolx_" isExternal>
             <FaTwitter size="36px" />
           </Link>
-          <Link>
+          <Link
+            href="https://dexscreener.com/bsc/0x4f421429e87196df186dc35ec4d35467214d6aa7"
+            isExternal
+          >
             <DexscreenerLogo w="30px" />
           </Link>
         </HStack>
