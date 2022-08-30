@@ -165,7 +165,7 @@ export default function Footer() {
               rel="noreferrer"
             >
               <Button px={0} leftIcon={<FaYoutube />} border={0}>
-                Youtube
+                Youtube 
               </Button>
             </a>
             <a href="mailto:info@protocol-x.io" target="_blank" rel="noreferrer">
