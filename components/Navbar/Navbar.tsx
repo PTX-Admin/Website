@@ -27,6 +27,10 @@ const Links: ILink[] = [
     path: '/',
   },
   {
+    label: 'dapp',
+    path: '/dapp',
+  },
+  {
     label: 'presale',
     path: '/presale',
   },
