@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Button, Image, Link } from '@chakra-ui/react';
+import { Button, HStack, Image, Link } from '@chakra-ui/react';
 import styles from './HomeHeader.module.css';
 import { useRouter } from 'next/router';
 import shield from '../../../Assets/home/header/shield.png';
@@ -20,14 +20,20 @@ function Hero() {
             ProtocolX is here to change the game by implementing an ever-developing, expanding, and
             growing ecosystem that all feeds into each other.
           </p>
-          <Button
-            as={Link}
-            href="https://pancakeswap.finance/swap?outputCurrency=0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455"
-            isExternal
-            className={styles.ctaBtn}
-          >
-            Buy $PTX
-          </Button>
+          <HStack alignItems={'center'} justifyContent="center">
+            <Button
+              as={Link}
+              href="https://pancakeswap.finance/swap?outputCurrency=0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455"
+              isExternal
+              className={styles.ctaBtn}
+              m={0}
+            >
+              Buy $PTX
+            </Button>
+            <Button as={Link} href="/dapp" className={styles.ctaBtn} m={0}>
+              Launch app
+            </Button>
+          </HStack>
         </div>
         <div className={styles.rightHero}>
           <Image

@@ -22,6 +22,8 @@ import {
   FaMedium,
   FaMediumM,
   FaTelegramPlane,
+  FaEnvelope,
+  FaCoins,
 } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import BuiltBySolar from '../BuiltBySolar';
@@ -95,17 +97,17 @@ export default function Footer() {
               </Button>
             </a>
           </VStack>
-
           <VStack pt={6} alignItems={'start'}>
             <Text color={'#DA2A2A'}>PRODUCTS</Text>
-            <Button
-              disabled
-              px={0}
-              border={0}
-              onClick={() => router.push('/', undefined, { shallow: true })}
+            <a
+              href="https://bscscan.com/address/0x5Ec500C5C6f0a270b633d5D5f0c3b9eB9b041455#code"
+              target="_blank"
+              rel="noreferrer"
             >
-              $PTX
-            </Button>
+              <Button px={0} leftIcon={<FaCoins />} border={0}>
+                $PTX
+              </Button>
+            </a>
             <Button
               disabled
               px={0}
@@ -152,7 +154,7 @@ export default function Footer() {
                 Discord
               </Button>
             </a>
-            <a href="https://t.me/ProtocolX_PTX" target="_blank" rel="noreferrer">
+            <a href="https://t.me/ptx_protocolx" target="_blank" rel="noreferrer">
               <Button px={0} leftIcon={<FaTelegramPlane />} border={0}>
                 Telegram
               </Button>
@@ -164,6 +166,11 @@ export default function Footer() {
             >
               <Button px={0} leftIcon={<FaYoutube />} border={0}>
                 Youtube
+              </Button>
+            </a>
+            <a href="mailto:info@protocol-x.io" target="_blank" rel="noreferrer">
+              <Button px={0} leftIcon={<FaEnvelope />} border={0}>
+                Mail
               </Button>
             </a>
           </VStack>

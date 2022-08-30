@@ -8,6 +8,10 @@ import mdb from '../../../Assets/home/partners/mdb.png';
 import newshari from '../../../Assets/home/partners/newshari.png';
 import silver from '../../../Assets/home/partners/silver.png';
 import bg from '../../../Assets/home/partners/partnersbg.jpg';
+import chainbet from '../../../Assets/home/partners/chainbet.png';
+import bloomify from '../../../Assets/home/partners/bloomify.png';
+import avion from '../../../Assets/home/partners/avion.png';
+import springgame from '../../../Assets/home/partners/springgame.png';
 
 export default function SimpleSlider() {
   return (
@@ -23,9 +27,7 @@ export default function SimpleSlider() {
           infiniteLoop={true}
           showIndicators={false}
           showStatus={false}
-          transitionTime={15100}
-          interval={15000}
-          centerMode={false}
+          transitionTime={10000}
         >
           <Flex justifyContent={'space-around'}>
             <Image objectFit={'contain'} maxW={'25%'} src="./solar.png" alt="" />
@@ -67,6 +69,36 @@ export default function SimpleSlider() {
               alt=""
             />
           </Flex>
+          <Flex justifyContent={'space-around'}>
+            <Image
+              objectFit={'contain'}
+              maxW={'25%'}
+              src={chainbet.src}
+              fallbackSrc={chainbet.blurDataURL}
+              alt=""
+            />
+            <Image
+              objectFit={'contain'}
+              maxW={'25%'}
+              src={bloomify.src}
+              fallbackSrc={bloomify.blurDataURL}
+              alt=""
+            />
+            <Image
+              objectFit={'contain'}
+              maxW={'25%'}
+              src={avion.src}
+              fallbackSrc={avion.blurDataURL}
+              alt=""
+            />
+          </Flex>
+          <Image
+            objectFit={'contain'}
+            maxW={'25%'}
+            src={springgame.src}
+            fallbackSrc={springgame.blurDataURL}
+            alt=""
+          />
         </Carousel>
       </HStack>
     </Box>
