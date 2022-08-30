@@ -165,7 +165,12 @@ export default function Footer() {
               rel="noreferrer"
             >
               <Button px={0} leftIcon={<FaYoutube />} border={0}>
-                Youtube 
+                Youtube
+              </Button>
+            </a>
+            <a href="https://github.com/PTX-Admin/Website" target="_blank" rel="noreferrer">
+              <Button px={0} leftIcon={<FaGithub />} border={0}>
+                Github
               </Button>
             </a>
             <a href="mailto:info@protocol-x.io" target="_blank" rel="noreferrer">
@@ -231,6 +236,15 @@ export default function Footer() {
               icon={<FaMedium />}
             />
           </a>
+          <a href="https://github.com/PTX-Admin/Website" target="_blank" rel="noreferrer">
+            <IconButton
+              border={0}
+              color={'#202932'}
+              fontSize={'2xl'}
+              aria-label="Github"
+              icon={<FaGithub />}
+            />
+          </a>
           <a href="https://www.assuredefi.io/projects/protocolx/" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
@@ -259,15 +273,7 @@ export default function Footer() {
               icon={<FaLinkedinIn />}
             />
           </a>
-          <a href="" target="_blank" rel="noreferrer">
-            <IconButton
-              border={0}
-              color={'#202932'}
-              fontSize={'2xl'}
-              aria-label="Github"
-              icon={<FaGithub />}
-            />
-          </a>
+
           <a href="" target="_blank" rel="noreferrer">
             <IconButton
               border={0}
